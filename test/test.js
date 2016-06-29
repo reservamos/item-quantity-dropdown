@@ -1,3 +1,3 @@
-$( document ).ready(function() {
-  $('a').iqDropdown();
+$(document).ready(function() {
+  $(".iqdropdown").iqDropdown();
 });
