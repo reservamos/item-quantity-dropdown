@@ -1,10 +1,8 @@
 .iqdropdown {
   $base-border-color: gainsboro !default;
-  $base-border-radius: 3px !default;
   $base-line-height: 1.5em !default;
   $base-background-color: white !default;
   $dark-gray: #333 !default;
-  $large-screen: 53.75em !default;
   $base-font-color: $dark-gray !default;
   $iqdropdown-color: $base-font-color;
   $iqdropdown-description-color: lighten($iqdropdown-color, 40%);
@@ -14,7 +12,7 @@
   $iqdropdown-inner-border: 1px solid silver;
   $iqdropdown-height: 40px;
   $iqdropdown-padding: 1em;
-  $iqdropdown-distance-from-menu: 50px;
+  $iqdropdown-distance-from-menu: 40px;
   $iqdropdown-arrow-top-distance: 0;
 
   line-height: $base-line-height;
@@ -24,17 +22,12 @@
     display: flex;
     position: relative;
     cursor: pointer;
+    border: $iqdropdown-border;
   }
 
   .iqdropdown-description {
     background: $iqdropdown-background;
-    border-bottom: $iqdropdown-border;
-    border-bottom-left-radius: $base-border-radius;
-    border-left: $iqdropdown-border;
-    border-top-left-radius: $base-border-radius;
-    border-top: $iqdropdown-border;
     color: $iqdropdown-description-color;
-    float: left;
     font-size: 0.7em;
     line-height: $iqdropdown-height;
     margin: 0;
@@ -43,12 +36,6 @@
 
   .iqdropdown-selection {
     background: $iqdropdown-background;
-    border-bottom: $iqdropdown-border;
-    border-bottom-right-radius: $base-border-radius;
-    border-right: $iqdropdown-border;
-    border-top: $iqdropdown-border;
-    border-top-right-radius: $base-border-radius;
-    float: right;
     font-size: 0.7em;
     line-height: $iqdropdown-height;
     margin: 0;
@@ -69,7 +56,6 @@
   .iqdropdown-menu {
     background: $iqdropdown-background;
     border: $iqdropdown-border;
-    border-radius: $base-border-radius;
     box-shadow: 0 2px 2px transparentize(black, 0.8);
     color: $iqdropdown-color;
     display: none;
@@ -79,24 +65,10 @@
     position: absolute;
     top: $iqdropdown-distance-from-menu;
     left: 0;
+    right: 0;
     transition: all 0.2s ease-in-out;
-    width: 228px;
     z-index: 99999;
     cursor: default;
-
-    &::before {
-      position: absolute;
-      top: 0;
-      right: 1em;
-      bottom: 0;
-      left: 0;
-      color: $iqdropdown-background;
-      content: "\25b2";
-      font-size: 1.4em;
-      pointer-events: none;
-      text-shadow: 0 -2px 2px transparentize(black, 0.7);
-      top: -0.7em;
-    }
   }
 
   .iqdropdown-menu-item {
@@ -107,15 +79,8 @@
     display: flex;
   }
 
-  .iqdropdown-menu-item:first-child {
-    border-top-left-radius: $base-border-radius;
-    border-top-right-radius: $base-border-radius;
-  }
-
   .iqdropdown-menu-item:last-child {
-    border: 0;
-    border-bottom-left-radius: $base-border-radius;
-    border-bottom-right-radius: $base-border-radius;
+    border-bottom: 0;
   }
 
   .iqdropdown-menu-item div:first-child {
