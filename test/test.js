@@ -1,3 +1,5 @@
 $(document).ready(function() {
-  $(".iqdropdown").iqDropdown();
+  $(".iqdropdown").iqDropdown({
+    
+  });
 });

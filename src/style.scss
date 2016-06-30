@@ -103,6 +103,7 @@
     color: $iqdropdown-color;
     list-style: none;
     padding: $iqdropdown-padding / 2;
+    display: flex;
   }
 
   .iqdropdown-menu li:hover {
@@ -118,6 +119,10 @@
     border: 0;
     border-bottom-left-radius: $base-border-radius;
     border-bottom-right-radius: $base-border-radius;
+  }
+
+  .iqdropdown-menu li div:first-child {
+    flex: 1;
   }
 
   .show-menu {
