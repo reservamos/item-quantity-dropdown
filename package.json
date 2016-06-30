@@ -4,7 +4,7 @@
   "description": "Dropdown to select items with quantities",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot --progress --colors",
+    "start": "webpack-dev-server --inline --progress --colors",
     "build": "per-env",
     "build:production": "webpack -p --progress --colors",
     "build:development": "webpack --progress --colors",

@@ -10,36 +10,15 @@ import 'style.scss';
     selectionText: 'item',
     textPlural: '',
     items: [
-      { id: 'item1', description: 'Item 1', defaultCount: 1 },
+      { id: 'item1', description: 'Item 1', defaultCount: 0 },
       { id: 'item2', description: 'Item 2', defaultCount: 0 },
       { id: 'item3', description: 'Item 3', defaultCount: 0 }
-    ]
+    ],
+    onChange: function () {}
   };
   let itemCount = {};
   let totalItems = 0;
   let settings;
-
-  function increment (id) {
-    let count = itemCount[id];
-
-    if (totalItems < settings.maxItems) {
-      count++;
-      totalItems++;
-    }
-
-    itemCount[id] = count;
-  }
-
-  function decrement (id) {
-    let count = itemCount[id];
-
-    if (totalItems > settings.minItems && count > 0) {
-      count--;
-      totalItems--;
-    }
-
-    itemCount[id] = count;
-  }
 
   function createItem (item, updateDisplay) {
     const $description = $('<div />').html(item.description);
@@ -53,15 +32,23 @@ import 'style.scss';
     $item.append($description, $controls);
 
     $decrementButton.click(() => {
-      decrement(item.id);
-      $countDisplay.html(itemCount[item.id]);
-      updateDisplay();
+      if (totalItems > settings.minItems && itemCount[item.id] > 0) {
+        itemCount[item.id]--;
+        totalItems--;
+        $countDisplay.html(itemCount[item.id]);
+        updateDisplay();
+        settings.onChange(item.id, itemCount[item.id], totalItems);
+      }
     });
 
     $incrementButton.click(() => {
-      increment(item.id);
-      $countDisplay.html(itemCount[item.id]);
-      updateDisplay();
+      if (totalItems < settings.maxItems) {
+        itemCount[item.id]++;
+        totalItems++;
+        $countDisplay.html(itemCount[item.id]);
+        updateDisplay();
+        settings.onChange(item.id, itemCount[item.id], totalItems);
+      }
     });
 
     $item.click((event) => event.stopPropagation());
