@@ -4,25 +4,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
-var env = process.env.NODE_ENV;
+var environment = process.env.NODE_ENV;
 var pluginName = 'item-quantity-dropdown';
-var plugins = [new ExtractTextPlugin(pluginName + '.css')];
-var devtool = '';
 var outputFile;
 
-if (env === 'production') {
-  outputFile = `${pluginName}.min.js`;
-  plugins.push(new webpack.optimize.UglifyJsPlugin());
-} else {
-  outputFile = `${pluginName}.js`;
-  devtool = '#source-map';
-  plugins.push(new HtmlWebpackPlugin({ template: 'test/index.html' }));
-}
-
-const config = {
+var config = {
   entry: './src/index.js',
-
-  devtool: devtool,
 
   output: {
     path: './lib',
@@ -63,12 +50,22 @@ const config = {
     ]
   },
 
-  plugins: plugins,
+  plugins: [new ExtractTextPlugin(pluginName + '.css')],
 
   resolve: {
     root: path.resolve('./src'),
     extensions: ['', '.js']
   }
 };
+
+if (environment === 'production') {
+  config.outputFile = `${pluginName}.min.js`;
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+} else {
+  config.outputFile = `${pluginName}.js`;
+  config.devtool = '#source-map';
+  config.plugins.push(new HtmlWebpackPlugin({ template: 'test/index.html' }));
+  config.devServer = { host: '0.0.0.0' };
+}
 
 module.exports = config;

@@ -47,7 +47,7 @@ import 'style.scss';
     const $decrementButton = $('<button>-</button>');
     const $incrementButton = $('<button>+</button>');
     const $countDisplay = $(`<span>${item.defaultCount}</span>`);
-    const $item = $('<li />');
+    const $item = $('<li />').addClass('iqdropdown-menu-item');
 
     $controls.append($decrementButton, $countDisplay, $incrementButton);
     $item.append($description, $controls);

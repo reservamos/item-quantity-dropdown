@@ -72,16 +72,17 @@
     border-radius: $base-border-radius;
     box-shadow: 0 2px 2px transparentize(black, 0.8);
     color: $iqdropdown-color;
-    cursor: pointer;
     display: none;
     margin: 0;
     overflow: show;
     padding: 0;
     position: absolute;
     top: $iqdropdown-distance-from-menu;
+    left: 0;
     transition: all 0.2s ease-in-out;
     width: 228px;
     z-index: 99999;
+    cursor: default;
 
     &::before {
       position: absolute;
@@ -98,7 +99,7 @@
     }
   }
 
-  .iqdropdown-menu li {
+  .iqdropdown-menu-item {
     border-bottom: $iqdropdown-inner-border;
     color: $iqdropdown-color;
     list-style: none;
@@ -106,22 +107,18 @@
     display: flex;
   }
 
-  .iqdropdown-menu li:hover {
-    background: $iqdropdown-background-hover;
-  }
-
-  .iqdropdown-menu li:first-child {
+  .iqdropdown-menu-item:first-child {
     border-top-left-radius: $base-border-radius;
     border-top-right-radius: $base-border-radius;
   }
 
-  .iqdropdown-menu li:last-child {
+  .iqdropdown-menu-item:last-child {
     border: 0;
     border-bottom-left-radius: $base-border-radius;
     border-bottom-right-radius: $base-border-radius;
   }
 
-  .iqdropdown-menu li div:first-child {
+  .iqdropdown-menu-item div:first-child {
     flex: 1;
   }
 
