@@ -74,7 +74,7 @@ $(document).ready(function () {
       decrementText: '-',
       counterCls: 'counter'
     },
-    onChange: function () {}
+    onChange: function (id, count, totalItems) {}
   }
 ```
 
