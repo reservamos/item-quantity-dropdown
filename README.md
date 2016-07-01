@@ -33,9 +33,29 @@ require('item-quantity-dropdown');
 ```
 
 ## Usage
+- In Markup:
+```html
+<div class="iqdropdown">
+  <p class="iqdropdown-description">Select Passengers</p>
+  <p class="iqdropdown-selection"></p>
+  <ul class="iqdropdown-menu">
+    <li data-id="item1" data-defaultcount=1>
+      <div>Item One</div>
+    </li>
+    <li data-id="item2" data-defaultcount=0>
+      <div>Item Two</div>
+    </li>
+    <li data-id="item3" data-defaultcount=0>
+      <div>Item Three</div>
+    </li>
+  </ul>
+</div>
+```
+
+- In Javascript:
 ```javascript
 $(document).ready(function () {
-  $('div').iqDropdown({ [options] });
+  $('.iqdropdown').iqDropdown({ [options] });
 });
 ```
 
