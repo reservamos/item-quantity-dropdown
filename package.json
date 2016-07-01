@@ -2,12 +2,10 @@
   "name": "item-quantity-dropdown",
   "version": "1.0.0",
   "description": "Dropdown to select items with quantities",
-  "main": "src/index.js",
+  "main": "lib/item-quantity-dropdown.js",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --colors",
-    "build": "per-env",
-    "build:production": "webpack -p --progress --colors",
-    "build:development": "webpack --progress --colors",
+    "build": "webpack --progress --colors",
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
     "test": "echo \"Error: no test specified\" && exit 1"

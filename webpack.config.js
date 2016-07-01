@@ -50,7 +50,7 @@ var config = {
     ]
   },
 
-  plugins: [new ExtractTextPlugin(pluginName + '.css')],
+  plugins: [],
 
   resolve: {
     root: path.resolve('./src'),
@@ -59,12 +59,17 @@ var config = {
 };
 
 if (environment === 'production') {
-  config.outputFile = `${pluginName}.min.js`;
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+  config.output.filename = `${pluginName}.min.js`;
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin(`${pluginName}.min.css`)
+  );
 } else {
-  config.outputFile = `${pluginName}.js`;
-  config.devtool = '#source-map';
-  config.plugins.push(new HtmlWebpackPlugin({ template: 'test/index.html' }));
+  config.output.filename = `${pluginName}.js`;
+  config.plugins.push(
+    new HtmlWebpackPlugin({ template: 'test/index.html' }),
+    new ExtractTextPlugin(`${pluginName}.css`)
+  );
   config.devServer = { host: '0.0.0.0' };
 }
 

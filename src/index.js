@@ -9,46 +9,56 @@ import 'style.scss';
     minItems: 0,
     selectionText: 'item',
     textPlural: '',
-    items: [
-      { id: 'item1', description: 'Item 1', defaultCount: 0 },
-      { id: 'item2', description: 'Item 2', defaultCount: 0 },
-      { id: 'item3', description: 'Item 3', defaultCount: 0 }
-    ],
+    controls: {
+      position: 'right',
+      displayCls: 'iqdropdown-item-display',
+      controlsCls: 'iqdropdown-item-controls',
+      incrementText: '+',
+      decrementText: '-',
+      counterCls: 'counter'
+    },
     onChange: function () {}
   };
   let itemCount = {};
   let totalItems = 0;
   let settings;
 
-  function createItem (item, updateDisplay) {
-    const $description = $('<div />').html(item.description);
-    const $controls = $('<div />');
-    const $decrementButton = $('<button>-</button>');
-    const $incrementButton = $('<button>+</button>');
-    const $countDisplay = $(`<span>${item.defaultCount}</span>`);
-    const $item = $('<li />').addClass('iqdropdown-menu-item');
+  function addControls (item, id, updateDisplay) {
+    const $item = $(item);
+    const $controls = $('<div />').addClass(settings.controls.controlsCls);
+    const $decrementButton = $(`<button>${settings.controls.decrementText}</button>`);
+    const $incrementButton = $(`<button>${settings.controls.incrementText}</button>`);
+    const $counter = $(`<span>${itemCount[id]}</span>`).addClass(settings.controls.counterCls);
 
-    $controls.append($decrementButton, $countDisplay, $incrementButton);
-    $item.append($description, $controls);
+    $item.children('div').addClass(settings.controls.displayCls);
+    $controls.append($decrementButton, $counter, $incrementButton);
 
-    $decrementButton.click(() => {
-      if (totalItems > settings.minItems && itemCount[item.id] > 0) {
-        itemCount[item.id]--;
+    if (settings.controls.position === 'right') {
+      $item.append($controls);
+    } else {
+      $item.prepend($controls);
+    }
+
+    $decrementButton.click((event) => {
+      if (totalItems > settings.minItems && itemCount[id] > 0) {
+        itemCount[id]--;
         totalItems--;
-        $countDisplay.html(itemCount[item.id]);
+        $counter.html(itemCount[id]);
         updateDisplay();
-        settings.onChange(item.id, itemCount[item.id], totalItems);
+        settings.onChange(id, itemCount[id], totalItems);
       }
+      event.preventDefault();
     });
 
     $incrementButton.click(() => {
       if (totalItems < settings.maxItems) {
-        itemCount[item.id]++;
+        itemCount[id]++;
         totalItems++;
-        $countDisplay.html(itemCount[item.id]);
+        $counter.html(itemCount[id]);
         updateDisplay();
-        settings.onChange(item.id, itemCount[item.id], totalItems);
+        settings.onChange(id, itemCount[id], totalItems);
       }
+      event.preventDefault();
     });
 
     $item.click((event) => event.stopPropagation());
@@ -57,9 +67,9 @@ import 'style.scss';
   }
 
   $.fn.iqDropdown = function (options) {
-    const $container = this.children().first();
-    const $selection = this.find('.iqdropdown-selection');
-    const $menu = $('<ul />').addClass('iqdropdown-menu').appendTo($container);
+    const $selection = this.find('p').last();
+    const $menu = this.find('ul');
+    const $items = $menu.find('li');
     const updateDisplay = () => {
       const usePlural = totalItems !== 1 && settings.textPlural.length > 0;
       const text = usePlural ? settings.textPlural : settings.selectionText;
@@ -67,12 +77,15 @@ import 'style.scss';
     };
 
     this.click(() => $menu.toggleClass('show-menu'));
-    settings = $.extend({}, defaults, options);
+    settings = $.extend(true, {}, defaults, options);
 
-    settings.items.forEach(item => {
-      itemCount[item.id] = item.defaultCount;
-      totalItems += item.defaultCount;
-      createItem(item, updateDisplay).appendTo($menu);
+    $items.each(function () {
+      const $item = $(this);
+      const id = $item.data('id');
+      const defaultCount = parseInt($item.data('defaultcount'), 10);
+      itemCount[id] = defaultCount;
+      totalItems += defaultCount;
+      addControls(this, id, updateDisplay);
     });
 
     updateDisplay();

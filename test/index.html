@@ -10,13 +10,39 @@
     <h3>Item Quantity Dropdown Demo</h3>
 
     <div class="iqdropdown">
-      <div class="iqdropdown-container">
-        <p class="iqdropdown-description">Select Passengers</p>
-        <p class="iqdropdown-selection"></p>
-      </div>
+      <p class="iqdropdown-description">Select Passengers</p>
+      <p class="iqdropdown-selection"></p>
+      <ul class="iqdropdown-menu">
+        <li data-id="general" data-defaultcount=1>
+          <div>Adult</div>
+        </li>
+        <li data-id="minor" data-defaultcount=0>
+          <div>Minor</div>
+        </li>
+        <li data-id="infant" data-defaultcount=0>
+           <div>Infant</div>
+         </li>
+      </ul>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-    <script src="test/test.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".iqdropdown").iqDropdown({
+          minItems: 1,
+          maxItems: 5,
+          selectionText: 'passenger',
+          textPlural: 'passengers',
+          controls: {
+            incrementText: 'more',
+            decrementText: 'less'
+          },
+          onChange: function (id, count, totalItems) {
+            console.log(id, count, totalItems);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
