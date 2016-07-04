@@ -11,10 +11,10 @@ import 'style.scss';
     textPlural: '',
     controls: {
       position: 'right',
-      displayCls: 'iqdropdown-item-display',
-      controlsCls: 'iqdropdown-item-controls',
       incrementText: '+',
       decrementText: '-',
+      displayCls: 'iqdropdown-item-display',
+      controlsCls: 'iqdropdown-item-controls',
       counterCls: 'counter'
     },
     onChange: function () {}

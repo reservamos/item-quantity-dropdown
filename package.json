@@ -10,6 +10,7 @@
     "lint:fix": "eslint --fix src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "",
   "keywords": [
     "jquery-plugin",
     "ecosystem:jquery"

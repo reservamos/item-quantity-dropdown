@@ -29,7 +29,9 @@ npm install item-quantity-dropdown --save-dev
 Then import/require it:
 ```javascript
 import 'item-quantity-dropdown';
+import 'item-quantity-dropdown/lib/item-quantity-dropdown.css';
 require('item-quantity-dropdown');
+require('item-quantity-dropdown/lib/item-quantity-dropdown.css');
 ```
 
 ## Usage
@@ -62,20 +64,20 @@ $(document).ready(function () {
 ### Config options:
 ```javascript
 {
-    maxItems: Infinity,
-    minItems: 0,
-    selectionText: 'item',
-    textPlural: '',
-    controls: {
-      position: 'right',
-      displayCls: 'iqdropdown-item-display',
-      controlsCls: 'iqdropdown-item-controls',
-      incrementText: '+',
-      decrementText: '-',
-      counterCls: 'counter'
-    },
-    onChange: function (id, count, totalItems) {}
-  }
+  maxItems: Infinity,
+  minItems: 0,
+  selectionText: 'item',
+  textPlural: '',
+  controls: {
+    position: 'right',
+    incrementText: '+',
+    decrementText: '-',
+    displayCls: 'iqdropdown-item-display',
+    controlsCls: 'iqdropdown-item-controls',
+    counterCls: 'counter'
+  },
+  onChange: function (id, count, totalItems) {}
+}
 ```
 
 ### Demo
