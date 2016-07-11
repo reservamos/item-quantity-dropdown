@@ -19,8 +19,8 @@ import 'style.scss';
     },
     onChange: function () {}
   };
-  let itemCount = {};
-  let totalItems = 0;
+  let itemCount;
+  let totalItems;
   let settings;
 
   function addControls (item, id, updateDisplay) {
@@ -75,9 +75,11 @@ import 'style.scss';
       const text = usePlural ? settings.textPlural : settings.selectionText;
       $selection.html(`${totalItems} ${text}`);
     };
+    itemCount = {};
+    totalItems = 0;
+    settings = $.extend(true, {}, defaults, options);
 
     this.click(() => $menu.toggleClass('show-menu'));
-    settings = $.extend(true, {}, defaults, options);
 
     $items.each(function () {
       const $item = $(this);
