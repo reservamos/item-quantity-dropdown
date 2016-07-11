@@ -79,7 +79,11 @@ import 'style.scss';
     totalItems = 0;
     settings = $.extend(true, {}, defaults, options);
 
-    this.click(() => $menu.toggleClass('show-menu'));
+    this.click(() => {
+     $selection.toggleClass('menu-open');
+     $menu.toggleClass('show-menu');
+    });
+    settings = $.extend(true, {}, defaults, options);
 
     $items.each(function () {
       const $item = $(this);
