@@ -1,6 +1,8 @@
 # item-quantity-dropdown jQuery plugin
 Dropdown menu to select items with quantities
 
+![Demo](https://github.com/reserbus/item-quantity-dropdown/test/demo.gif)
+
 ## Dependencies:
 - jquery: ^3.0.0
 
