@@ -45,7 +45,8 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
   display: flex;
   position: relative;
   cursor: pointer;
-  border: $iqdropdown-border;height: $iqdropdown-height;
+  border: $iqdropdown-border;
+  height: $iqdropdown-height;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
@@ -53,18 +54,12 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
   .iqdropdown-description {
     @include image(url('/src/images/passenger-icon.png') no-repeat, inline-block, 21px, 20px, 100% auto, middle);
-    // background: $white;
-    // color: $iqdropdown-description-color;
-    // font-size: 0.7em;
     line-height: $iqdropdown-height;
     margin: $iqdropdown-padding ($iqdropdown-padding / 2) 0 $iqdropdown-padding;
-    // padding: 0 ($iqdropdown-padding / 2) 0 $iqdropdown-padding;
   }
 
   .iqdropdown-selection {
     @include font($main-blue, $OpenSans, 17px, 600, normal);
-    // background: $white;
-    // font-size: 0.7em;
     line-height: $iqdropdown-height;
     margin: 0;
     padding: 0 ($iqdropdown-padding * 2.5) 0 ($iqdropdown-padding / 2);
@@ -72,13 +67,10 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
     flex: 1;
 
     &.menu-open {
-
       &::after {
         @include image(url('/src/images/dropdown-arrow-up.png') no-repeat, inline-block, 5px, 12px, 100% auto, middle);
       }
-
     }
-
   }
 
   .iqdropdown-selection::after {
@@ -94,7 +86,6 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
   .iqdropdown-menu {
     background: $iqdropdown-background;
     border: $dropdown-border;
-    // box-shadow: 0 2px 2px transparentize(black, 0.8);
     color: $iqdropdown-color;
     display: none;
     margin: -1px;
@@ -114,7 +105,6 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
       display: flex;
       list-style: none;
       padding: 15px 0;
-      //padding: $iqdropdown-padding / 2;
 
       .iqdropdown-item-display {
         @include font($main-blue, $OpenSans, 17px, 500, normal);
@@ -166,11 +156,8 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
           &:focus {
             outline: none;
           }
-
         }
-
       }
-
     }
 
     li:last-child {
@@ -181,5 +168,4 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
   .show-menu {
     display: block;
   }
-
 }

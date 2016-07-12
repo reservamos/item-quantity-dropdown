@@ -80,10 +80,9 @@ import 'style.scss';
     settings = $.extend(true, {}, defaults, options);
 
     this.click(() => {
-     $selection.toggleClass('menu-open');
-     $menu.toggleClass('show-menu');
+      $selection.toggleClass('menu-open');
+      $menu.toggleClass('show-menu');
     });
-    settings = $.extend(true, {}, defaults, options);
 
     $items.each(function () {
       const $item = $(this);
