@@ -1,6 +1,6 @@
 {
   "name": "item-quantity-dropdown",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Dropdown to select items with quantities",
   "main": "lib/item-quantity-dropdown.js",
   "scripts": {
