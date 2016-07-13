@@ -1,0 +1,50 @@
+{
+  "name": "item-quantity-dropdown",
+  "description": "Dropdown to select items with quantities",
+  "main": [
+    "lib/item-quantity-dropdown.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*.md",
+    "*.htm",
+    "_docs"
+  ],
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "authors": [
+    "Juan Miguel Rubio"
+  ],
+  "homepage": "https://github.com/reserbus/item-quantity-dropdown",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/reserbus/item-quantity-dropdown.git"
+  },
+  "dependencies": {
+    "jquery": "^3.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^6.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.13.1",
+    "eslint-loader": "^1.3.0",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.21.0",
+    "node-sass": "^3.8.0",
+    "per-env": "^1.0.2",
+    "postcss-loader": "^0.9.1",
+    "resolve-url-loader": "^1.4.4",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
