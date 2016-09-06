@@ -66,6 +66,15 @@ $(document).ready(function () {
 ```
 
 ### Config options:
+
+## Item specific using data attributes
+```html
+<li data-id="item1" data-defaultcount="0" data-mincount="0" data-maxcount="1">
+  ···
+</li>
+```
+
+## Globals on initialization
 ```javascript
 {
   // max total items
