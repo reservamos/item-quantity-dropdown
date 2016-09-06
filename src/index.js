@@ -22,7 +22,9 @@ import 'style.scss';
       counterCls: 'counter'
     },
     items: {},
-    onChange: function () {}
+    onChange: () => {},
+    beforeDecrement: () => true,
+    beforeIncrement: () => true
   };
 
   const setItemSettings = (id, $item) => {
@@ -51,30 +53,32 @@ import 'style.scss';
     }
 
     $decrementButton.click(event => {
-      const itemSettings = settings.items[id];
-      if (totalItems > settings.minItems && itemCount[id] > itemSettings.minCount) {
+      const { items, minItems, beforeDecrement, onChange } = settings;
+      const allowClick = beforeDecrement(id, itemCount);
+      if (allowClick && totalItems > minItems && itemCount[id] > items[id].minCount) {
         itemCount[id]--;
         totalItems--;
         $counter.html(itemCount[id]);
         updateDisplay();
-        settings.onChange(id, itemCount[id], totalItems);
+        onChange(id, itemCount[id], totalItems);
       }
       event.preventDefault();
     });
 
     $incrementButton.click(event => {
-      const itemSettings = settings.items[id];
-      if (totalItems < settings.maxItems && itemCount[id] < itemSettings.maxCount) {
+      const { items, maxItems, beforeIncrement, onChange } = settings;
+      const allowClick = beforeIncrement(id, itemCount);
+      if (allowClick && totalItems < maxItems && itemCount[id] < items[id].maxCount) {
         itemCount[id]++;
         totalItems++;
         $counter.html(itemCount[id]);
         updateDisplay();
-        settings.onChange(id, itemCount[id], totalItems);
+        onChange(id, itemCount[id], totalItems);
       }
       event.preventDefault();
     });
 
-    $item.click((event) => event.stopPropagation());
+    $item.click(event => event.stopPropagation());
 
     return $item;
   };
