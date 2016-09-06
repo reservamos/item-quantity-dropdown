@@ -4,6 +4,10 @@
 import 'style.scss';
 
 (function ($) {
+  let itemCount;
+  let totalItems;
+  let settings;
+
   const defaults = {
     maxItems: Infinity,
     minItems: 0,
@@ -17,14 +21,21 @@ import 'style.scss';
       controlsCls: 'iqdropdown-item-controls',
       counterCls: 'counter'
     },
+    items: {},
     onChange: function () {}
   };
-  let itemCount;
-  let totalItems;
-  let settings;
 
-  function addControls (item, id, updateDisplay) {
-    const $item = $(item);
+  const setItemSettings = (id, $item) => {
+    const minCount = parseInt($item.data('mincount'), 10);
+    const maxCount = parseInt($item.data('maxcount'), 10);
+
+    settings.items[id] = {
+      minCount: isNaN(minCount) ? 0 : minCount,
+      maxCount: isNaN(maxCount) ? Infinity : maxCount
+    };
+  };
+
+  const addControls = (id, $item, updateDisplay) => {
     const $controls = $('<div />').addClass(settings.controls.controlsCls);
     const $decrementButton = $(`<button>${settings.controls.decrementText}</button>`);
     const $incrementButton = $(`<button>${settings.controls.incrementText}</button>`);
@@ -39,8 +50,9 @@ import 'style.scss';
       $item.prepend($controls);
     }
 
-    $decrementButton.click((event) => {
-      if (totalItems > settings.minItems && itemCount[id] > 0) {
+    $decrementButton.click(event => {
+      const itemSettings = settings.items[id];
+      if (totalItems > settings.minItems && itemCount[id] > itemSettings.minCount) {
         itemCount[id]--;
         totalItems--;
         $counter.html(itemCount[id]);
@@ -50,8 +62,9 @@ import 'style.scss';
       event.preventDefault();
     });
 
-    $incrementButton.click(() => {
-      if (totalItems < settings.maxItems) {
+    $incrementButton.click(event => {
+      const itemSettings = settings.items[id];
+      if (totalItems < settings.maxItems && itemCount[id] < itemSettings.maxCount) {
         itemCount[id]++;
         totalItems++;
         $counter.html(itemCount[id]);
@@ -64,7 +77,7 @@ import 'style.scss';
     $item.click((event) => event.stopPropagation());
 
     return $item;
-  }
+  };
 
   $.fn.iqDropdown = function (options) {
     const $selection = this.find('p').last();
@@ -75,6 +88,7 @@ import 'style.scss';
       const text = usePlural ? settings.textPlural : settings.selectionText;
       $selection.html(`${totalItems} ${text}`);
     };
+
     itemCount = {};
     totalItems = 0;
     settings = $.extend(true, {}, defaults, options);
@@ -87,10 +101,12 @@ import 'style.scss';
     $items.each(function () {
       const $item = $(this);
       const id = $item.data('id');
-      const defaultCount = parseInt($item.data('defaultcount'), 10);
+      const defaultCount = parseInt($item.data('defaultcount') || '0', 10);
+
       itemCount[id] = defaultCount;
       totalItems += defaultCount;
-      addControls(this, id, updateDisplay);
+      setItemSettings(id, $item);
+      addControls(id, $item, updateDisplay);
     });
 
     updateDisplay();
