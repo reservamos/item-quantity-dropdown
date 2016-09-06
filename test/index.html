@@ -10,9 +10,49 @@
   </head>
 
   <body>
-    <h3>Item Quantity Dropdown Demo</h3>
+    <h2>Item Quantity Dropdown Demo</h2>
 
-    <div class="iqdropdown">
+    <h3>No config options</h3>
+
+    <div class="no-config iqdropdown">
+      <p class="iqdropdown-selection"></p>
+      <ul class="iqdropdown-menu">
+        <li data-id="item1">
+          <div>
+            Item 1
+            <span>A short description</span>
+          </div>
+        </li>
+        <li data-id="item2">
+          <div>
+            Item 2
+            <span>A short description</span>
+          </div>
+        </li>
+        <li data-id="item3">
+          <div>
+            Item 3
+            <span>A short description</span>
+          </div>
+        </li>
+        <li data-id="item4">
+          <div>
+            Item 4
+            <span>A short description</span>
+          </div>
+        </li>
+        <li data-id="item5">
+          <div>
+            Item 5
+            <span>A short description</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h3>Custom config</h3>
+
+    <div class="custom iqdropdown">
       <span class="iqdropdown-description"></span>
       <p class="iqdropdown-selection"></p>
       <ul class="iqdropdown-menu">
@@ -27,10 +67,10 @@
           </div>
         </li>
         <li data-id="infant">
-           <div>Infant
-             <span>2- years</span>
-           </div>
-         </li>
+          <div>Infant
+            <span>2- years</span>
+          </div>
+        </li>
       </ul>
     </div>
 
@@ -38,7 +78,9 @@
 
     <script type="text/javascript">
       $(document).ready(function () {
-        $(".iqdropdown").iqDropdown({
+        $(".no-config").iqDropdown();
+
+        $(".custom").iqDropdown({
           minItems: 1,
           maxItems: 5,
           selectionText: 'passenger',
