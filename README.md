@@ -1,15 +1,15 @@
 # item-quantity-dropdown jQuery plugin
 Dropdown menu to select items with quantities
 
-![Demo](https://github.com/reserbus/item-quantity-dropdown/blob/master/test/demo.gif)
+![Demo](https://raw.githubusercontent.com/reserbus/item-quantity-dropdown/master/test/demo.gif)
 
 ## Dependencies:
 - jquery: ^3.0.0
 
 ## Installation
 ### Direct Download
-- Download the script [here](https://github.com/reserbus/item-quantity-dropdown/blob/master/lib/item-quantity-dropdown.min.js) and include it:
-- Download the stylesheet [here](https://github.com/reserbus/item-quantity-dropdown/blob/master/lib/item-quantity-dropdown.min.css) and include it:
+- Download the script [here](https://github.com/reserbus/item-quantity-dropdown/blob/master/lib/item-quantity-dropdown.min.js) and include it as shown below
+- Download the stylesheet [here](https://github.com/reserbus/item-quantity-dropdown/blob/master/lib/item-quantity-dropdown.min.css) and include it as shown below
 ```html
 <html>
   <head>
@@ -23,9 +23,11 @@ Dropdown menu to select items with quantities
 </html>
 ```
 
-### NPM
-```
+### NPM + Bower
+```shell
 npm install item-quantity-dropdown --save-dev
+# or
+bower install item-quantity-dropdown --save
 ```
 
 Then import/require it:
@@ -66,10 +68,15 @@ $(document).ready(function () {
 ### Config options:
 ```javascript
 {
+  // max total items
   maxItems: Infinity,
+  // min total items
   minItems: 0,
+  // text to show on the dropdown
   selectionText: 'item',
+  // text to show for multiple items
   textPlural: '',
+  // buttons to increment/decrement
   controls: {
     position: 'right',
     incrementText: '+',
@@ -78,7 +85,12 @@ $(document).ready(function () {
     controlsCls: 'iqdropdown-item-controls',
     counterCls: 'counter'
   },
-  onChange: function (id, count, totalItems) {}
+  // fires when an item quantity changes
+  onChange: function (id, count, totalItems) {},
+  // return false to prevent an item decrement
+  beforeDecrement: function (id, itemCount) {},
+  // return false to prevent an item increment
+  beforeIncrement: function (id, itemCount) {}
 }
 ```
 
