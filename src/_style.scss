@@ -49,6 +49,7 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
   border: $iqdropdown-border;
   height: $iqdropdown-height;
   border-radius: 3px;
+  -webkit-tap-highlight-color: transparent;
 
   .iqdropdown-description {
     @include image(url('/src/images/passenger-icon.png') no-repeat, inline-block, 21px, 20px, 100% auto, middle);
@@ -153,10 +154,6 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
           &:focus {
             outline: none;
-          }
-
-          &:hover {
-            background-color: $iqdropdown-background-hover;
           }
         }
       }
