@@ -12,6 +12,7 @@
   border: 1px solid #D0D0D0;
   height: 50px;
   border-radius: 3px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .iqdropdown .iqdropdown-description {
@@ -172,14 +173,21 @@
   outline: none;
 }
 
-.iqdropdown .iqdropdown-menu li .iqdropdown-item-controls button:hover {
-  background-color: #e7f4ff;
-}
-
 .iqdropdown .iqdropdown-menu li:last-child {
   border-bottom: 0;
 }
 
 .iqdropdown .show-menu {
   display: block;
+}
+
+/* Styles for big screens */
+
+@media screen and (min-width: 500px) {
+  .iqdropdown
+.iqdropdown-menu li
+.iqdropdown-item-controls
+button:hover {
+    background-color: #e7f4ff;
+  }
 }
