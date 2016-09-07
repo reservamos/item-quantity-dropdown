@@ -105,6 +105,7 @@
   font-size: 12px;
   font-weight: 400;
   font-style: normal;
+  line-height: 1.3em;
   display: block;
 }
 
@@ -118,6 +119,7 @@
   border-radius: 50px;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
 }
 
 .iqdropdown .iqdropdown-menu li .iqdropdown-item-controls .counter {
@@ -130,7 +132,10 @@
   font-size: 15px;
   font-weight: 700;
   font-style: normal;
+  cursor: pointer;
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background: none;
   border: none;
   margin: 0;
@@ -165,6 +170,10 @@
 
 .iqdropdown .iqdropdown-menu li .iqdropdown-item-controls button:focus {
   outline: none;
+}
+
+.iqdropdown .iqdropdown-menu li .iqdropdown-item-controls button:hover {
+  background-color: #e7f4ff;
 }
 
 .iqdropdown .iqdropdown-menu li:last-child {

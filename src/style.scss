@@ -33,6 +33,7 @@ $iqdropdown-height: 50px;
 $iqdropdown-padding: 1em;
 $iqdropdown-distance-from-menu: 50px;
 $iqdropdown-arrow-top-distance: 25px;
+$item-display-line-height: 1.3em;
 $main-blue: #204F74;
 $white: #FFFFFF;
 $HelveticaNeue: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -47,9 +48,6 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
   cursor: pointer;
   border: $iqdropdown-border;
   height: $iqdropdown-height;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
   border-radius: 3px;
 
   .iqdropdown-description {
@@ -112,6 +110,7 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
         span {
           @include font(#6091BD, $OpenSans, 12px, 400, normal);
+          line-height: $item-display-line-height;
           display: block;
         }
       }
@@ -119,11 +118,9 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
       .iqdropdown-item-controls {
         @include font($main-blue, $OpenSans, 17px, 500, normal);
         border: $dropdown-border;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        -o-border-radius: 50px;
         border-radius: 50px;
         display: flex;
+        overflow: hidden;
 
         .counter {
           padding: 11px 20px;
@@ -131,7 +128,8 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
         button {
           @include font($main-blue, $OpenSans, 15px, 700, normal);
-          -webkit-appearance: none;
+          cursor: pointer;
+          appearance: none;
           background: none;
           border: none;
           margin: 0;
@@ -155,6 +153,10 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
           &:focus {
             outline: none;
+          }
+
+          &:hover {
+            background-color: $iqdropdown-background-hover;
           }
         }
       }
