@@ -1,0 +1,18 @@
+// Miscellaneous mixins
+
+@mixin font($color, $font-family, $font-size, $font-weight, $font-style) {
+  color: $color;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+}
+
+@mixin image($image-url, $display, $height, $width, $background-size, $vertical-align) {
+  background: $image-url;
+  background-size: $background-size;
+  display: $display;
+  height: $height;
+  vertical-align: $vertical-align;
+  width: $width;
+}

@@ -1,0 +1,18 @@
+$base-border-color: gainsboro !default;
+$base-line-height: 1.5em !default;
+$base-background-color: #F6FBFF;
+$dark-gray: #333 !default;
+$dropdown-border: 1px solid #B4D9FA;
+$base-font-color: $dark-gray !default;
+$iqdropdown-color: $base-font-color;
+$iqdropdown-description-color: lighten($iqdropdown-color, 40%);
+$iqdropdown-border: 1px solid #D0D0D0;
+$iqdropdown-background: $base-background-color;
+$iqdropdown-background-hover: darken($iqdropdown-background, 3%);
+$iqdropdown-inner-border: 1px solid #D0D0D0;
+$iqdropdown-height: 50px;
+$iqdropdown-padding: 1em;
+$iqdropdown-distance-from-menu: 50px;
+$iqdropdown-arrow-top-distance: 25px;
+$item-display-line-height: 1.3em;
+$main-blue: #204F74;

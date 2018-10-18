@@ -1,55 +1,15 @@
-/* Mixins */
-@mixin font($color, $font-family, $font-size, $font-weight, $font-style) {
-  color: $color;
-  font-family: $font-family;
-  font-size: $font-size;
-  font-weight: $font-weight;
-  font-style: $font-style;
-}
-
-@mixin image($image-url, $display, $height, $width, $background-size, $vertical-align) {
-  background: $image-url;
-  display: $display;
-  height: $height;
-  width: $width; 
-  background-size: $background-size;
-  vertical-align: $vertical-align;
-}
-
-/* Variables */
-$base-border-color: gainsboro !default;
-$base-line-height: 1.5em !default;
-$base-background-color: #F6FBFF;
-$dark-gray: #333 !default;
-$dropdown-border: 1px solid #B4D9FA;
-$base-font-color: $dark-gray !default;
-$iqdropdown-color: $base-font-color;
-$iqdropdown-description-color: lighten($iqdropdown-color, 40%);
-$iqdropdown-border: 1px solid #D0D0D0;
-$iqdropdown-background: $base-background-color;
-$iqdropdown-background-hover: darken($iqdropdown-background, 3%);
-$iqdropdown-inner-border: 1px solid #D0D0D0;
-$iqdropdown-height: 50px;
-$iqdropdown-padding: 1em;
-$iqdropdown-distance-from-menu: 50px;
-$iqdropdown-arrow-top-distance: 25px;
-$item-display-line-height: 1.3em;
-$main-blue: #204F74;
-$white: #FFFFFF;
-$HelveticaNeue: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$Arial: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
-$OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
+@import "../app";
 
 .iqdropdown {
-  line-height: $base-line-height;
-  width: 100%;
-  display: flex;
-  position: relative;
-  cursor: pointer;
-  border: $iqdropdown-border;
-  height: $iqdropdown-height;
-  border-radius: 3px;
   -webkit-tap-highlight-color: transparent;
+  border: $iqdropdown-border;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  height: $iqdropdown-height;
+  line-height: $base-line-height;
+  position: relative;
+  width: 100%;
 
   .iqdropdown-description {
     @include image(url('/src/images/passenger-icon.png') no-repeat, inline-block, 21px, 20px, 100% auto, middle);
@@ -59,11 +19,11 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
   .iqdropdown-selection {
     @include font($main-blue, $OpenSans, 17px, 600, normal);
+    flex: 1;
     line-height: $iqdropdown-height;
     margin: 0;
     padding: 0 ($iqdropdown-padding * 2.5) 0 ($iqdropdown-padding / 2);
     position: relative;
-    flex: 1;
 
     &.menu-open {
       &::after {
@@ -86,17 +46,17 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
     background: $iqdropdown-background;
     border: $dropdown-border;
     color: $iqdropdown-color;
+    cursor: default;
     display: none;
+    left: 0;
     margin: -1px;
     overflow: show;
     padding: 0 15px;
     position: absolute;
-    top: $iqdropdown-distance-from-menu;
-    left: 0;
     right: 0;
+    top: $iqdropdown-distance-from-menu;
     transition: all 0.2s ease-in-out;
     z-index: 99999;
-    cursor: default;
 
     li {
       border-bottom: $dropdown-border;
@@ -111,8 +71,8 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
         span {
           @include font(#6091BD, $OpenSans, 12px, 400, normal);
-          line-height: $item-display-line-height;
           display: block;
+          line-height: $item-display-line-height;
         }
       }
 
@@ -129,10 +89,10 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
         button {
           @include font($main-blue, $OpenSans, 15px, 700, normal);
-          cursor: pointer;
           appearance: none;
           background: none;
           border: none;
+          cursor: pointer;
           margin: 0;
           padding: 10px 20px;
 
@@ -167,4 +127,13 @@ $OpenSans: 'OpenSans', 'Helvetica Neue', 'Helvetica', sans-serif;
   .show-menu {
     display: block;
   }
+}
+
+@media screen and (min-width: 500px) {
+  .iqdropdown
+    .iqdropdown-menu li
+      .iqdropdown-item-controls
+        button:hover {
+          background-color: $iqdropdown-background-hover;
+        }
 }

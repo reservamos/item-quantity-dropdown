@@ -1,7 +1,7 @@
 /* global jQuery */
 
 // plugin styles
-import 'index.scss';
+import 'styles/main.scss';
 
 (function ($) {
   const defaults = {
