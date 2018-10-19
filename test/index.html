@@ -88,7 +88,12 @@
 
     <script type="text/javascript">
       $(document).ready(function () {
-        $(".no-config").iqDropdown();
+        $(".no-config").iqDropdown({
+          controls: {
+            incrementText: '<i class="icon-decrement icon-increment"></i>',
+            decrementText: '<i class="icon-decrement"></i>'
+          },
+        });
 
         $(".custom").iqDropdown({
           minItems: 1,
