@@ -1,10 +1,10 @@
 .iqdropdown .icon-decrement {
   display: inline-block;
-  height: 15px;
+  height: $icon-size;
   margin: auto;
-  min-width: 15px;
+  min-width: $icon-size;
   position: relative;
-  width: 15px;
+  width: $icon-size;
 
   &::after{
     background: #5592BE;
@@ -14,7 +14,7 @@
     position: absolute;
     top: 6px;
     transition: transform .25s ease-in-out;
-    width: 15px;
+    width: $icon-size;
   }
 
   &.icon-increment::before {
@@ -26,6 +26,6 @@
     top: 6px;
     transform: rotate(90deg);
     transition: transform .25s ease-in-out;
-    width: 15px;
+    width: $icon-size;
   }
 }

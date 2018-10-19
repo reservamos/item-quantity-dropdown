@@ -1,28 +1,26 @@
-.iqdropdown {
-  .iqdropdown-menu {
-    background: $iqdropdown-background;
-    border: $dropdown-border;
-    cursor: default;
-    display: none;
-    left: 0;
-    margin: -1px;
-    position: absolute;
-    right: 0;
-    top: $iqdropdown-height;
-    transition: all 0.2s ease-in-out;
-    z-index: 99999;
+.iqdropdown .iqdropdown-menu {
+  background: $iqdropdown-background;
+  border: $iqdropdown-border;
+  cursor: default;
+  display: none;
+  left: 0;
+  margin: -1px;
+  position: absolute;
+  right: 0;
+  top: $iqdropdown-height;
+  transition: all 0.2s ease-in-out;
+  z-index: 99999;
 
-    &-option {
-      @include last-child('border');
-      align-items: center;
-      border-bottom: $dropdown-border;
-      display: flex;
-      height: $iqdropdown-menu-height;
-      padding: 0 15px;
-    }
+  &-option {
+    @include last-child('border');
+    align-items: center;
+    border-bottom: $iqdropdown-border;
+    display: flex;
+    height: $iqdropdown-menu-height;
+    padding: 0 15px;
+  }
 
-    &.show-menu {
-      display: block;
-    }
+  &.show-menu {
+    display: block;
   }
 }
