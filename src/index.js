@@ -13,7 +13,7 @@ import 'styles/main.scss';
       position: 'right',
       incrementText: '+',
       decrementText: '-',
-      displayCls: 'iqdropdown-item-display',
+      displayCls: 'iqdropdown-content',
       controlsCls: 'iqdropdown-item-controls',
       counterCls: 'counter'
     },
@@ -24,9 +24,9 @@ import 'styles/main.scss';
   };
 
   $.fn.iqDropdown = function (options) {
-    const $selection = this.find('p').last();
-    const $menu = this.find('ul');
-    const $items = $menu.find('li');
+    const $selection = this.find('p.iqdropdown-selection').last();
+    const $menu = this.find('div.iqdropdown-menu');
+    const $items = $menu.find('div.iqdropdown-menu-option');
     const settings = $.extend(true, {}, defaults, options);
     let itemCount = {};
     let totalItems = 0;
@@ -43,8 +43,8 @@ import 'styles/main.scss';
 
     function addControls (id, $item, updateDisplay) {
       const $controls = $('<div />').addClass(settings.controls.controlsCls);
-      const $decrementButton = $(`<button>${settings.controls.decrementText}</button>`);
-      const $incrementButton = $(`<button>${settings.controls.incrementText}</button>`);
+      const $decrementButton = $(`<button class="button-decrement">${settings.controls.decrementText}</button>`);
+      const $incrementButton = $(`<button class="button-increment">${settings.controls.incrementText}</button>`);
       const $counter = $(`<span>${itemCount[id]}</span>`).addClass(settings.controls.counterCls);
 
       $item.children('div').addClass(settings.controls.displayCls);

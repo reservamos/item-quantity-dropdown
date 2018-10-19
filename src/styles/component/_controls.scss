@@ -1,0 +1,32 @@
+.iqdropdown .iqdropdown-item-controls {
+  display: flex;
+
+  .counter {
+    @include font(17px, 500);
+    border-bottom: $dropdown-border;
+    border-top: $dropdown-border;
+    padding: 11px 20px;
+  }
+
+  button {
+    align-items: center;
+    border: $dropdown-border;
+    display: flex;
+    height: 45px;
+    padding: 0 20px;
+
+    &:hover {
+      background-color: $iqdropdown-background-hover;
+    }
+
+    &.button-decrement {
+      border-bottom-left-radius: $dropdown-border-radius;
+      border-top-left-radius: $dropdown-border-radius;
+    }
+
+    &.button-increment {
+      border-bottom-right-radius: $dropdown-border-radius;
+      border-top-right-radius: $dropdown-border-radius;
+    }
+  }
+}

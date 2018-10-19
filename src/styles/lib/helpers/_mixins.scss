@@ -1,18 +1,25 @@
 // Miscellaneous mixins
 
-@mixin font($color, $font-family, $font-size, $font-weight, $font-style) {
+@mixin font ($size, $weight: 400, $color: $main-blue, $family: $primary-font) {
   color: $color;
-  font-family: $font-family;
-  font-size: $font-size;
-  font-style: $font-style;
-  font-weight: $font-weight;
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
 }
 
-@mixin image($image-url, $display, $height, $width, $background-size, $vertical-align) {
-  background: $image-url;
-  background-size: $background-size;
+@mixin background-image ($imgpath, $height, $width: 100%, $display: inline-block, $bg-size: contain, $bg-pos: center) {
+  background-image: url($imgpath);
+  background-position: $bg-pos;
+  background-repeat: no-repeat;
+  background-size: $bg-size;
+  content: '';
   display: $display;
   height: $height;
-  vertical-align: $vertical-align;
   width: $width;
+}
+
+@mixin last-child($prop: margin) {
+  &:last-child {
+    #{$prop}: 0;
+  }
 }

@@ -1,0 +1,15 @@
+.iqdropdown {
+  &-content {
+    flex: 1;
+    padding-right: 10px;
+  }
+
+  &-item {
+    @include font(17px, 500);
+  }
+
+  p.iqdropdown-description {
+    @include font(12px, 400, #6091BD);
+    margin-top: 5px;
+  }
+}

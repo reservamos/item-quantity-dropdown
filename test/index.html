@@ -20,62 +20,67 @@
       <h3>No config options</h3>
       <div class="no-config iqdropdown">
         <p class="iqdropdown-selection"></p>
-        <ul class="iqdropdown-menu">
-          <li data-id="item1">
+        <div class="iqdropdown-menu">
+          <div class="iqdropdown-menu-option" data-id="item1">
             <div>
-              Item 1
-              <span>A short description</span>
+              <p class="iqdropdown-item">Item 1</p>
+              <p class="iqdropdown-description">A short description</p>
             </div>
-          </li>
-          <li data-id="item2">
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item2">
             <div>
-              Item 2
-              <span>A short description</span>
+              <p class="iqdropdown-item">Item 2</p>
+              <p class="iqdropdown-description">A short description</p>
             </div>
-          </li>
-          <li data-id="item3">
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item3">
             <div>
-              Item 3
-              <span>A short description</span>
+              <p class="iqdropdown-item">Item 3</p>
+              <p class="iqdropdown-description">A short description</p>
             </div>
-          </li>
-          <li data-id="item4">
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item4">
             <div>
-              Item 4
-              <span>A short description</span>
+              <p class="iqdropdown-item">Item 4</p>
+              <p class="iqdropdown-description">A short description</p>
             </div>
-          </li>
-          <li data-id="item5">
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item5">
             <div>
-              Item 5
-              <span>A short description</span>
+              <p class="iqdropdown-item">Item 5</p>
+              <p class="iqdropdown-description">A short description</p>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
       <h3>Custom config</h3>
 
+      <i class="icon-decrement"></i>
+      <i class="icon-decrement icon-increment"></i>
+
       <div class="custom iqdropdown">
-        <span class="iqdropdown-description"></span>
         <p class="iqdropdown-selection"></p>
-        <ul class="iqdropdown-menu">
-          <li data-id="adult" data-defaultcount=1 data-mincount=1>
-            <div>Adult
-              <span>12+ years</span>
+        <div class="iqdropdown-menu">
+          <div class="iqdropdown-menu-option" data-id="adult" data-defaultcount=1 data-mincount=1>
+            <div>
+              <p class="iqdropdown-item">Adults</p>
+              <p class="iqdropdown-description">12+ years</p>
             </div>
-          </li>
-          <li data-id="minor" data-defaultcount=0 data-mincount=0>
-            <div>Minor
-              <span>2 - 11 years</span>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="minor" data-defaultcount=0 data-mincount=0>
+            <div>
+              <p class="iqdropdown-item">Children</p>
+              <p class="iqdropdown-description">2 - 11 years</p>
             </div>
-          </li>
-          <li data-id="infant">
-            <div>Infant
-              <span>2- years</span>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="infant">
+            <div>
+              <p class="iqdropdown-item">Infants</p>
+              <p class="iqdropdown-description">2 years</p>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -91,8 +96,8 @@
           selectionText: 'passenger',
           textPlural: 'passengers',
           controls: {
-            incrementText: '<i class="more"></i>',
-            decrementText: '<i class="less"></i>'
+            incrementText: '<i class="icon-decrement icon-increment"></i>',
+            decrementText: '<i class="icon-decrement"></i>'
           },
           onChange: function (id, count, totalItems) {
             console.log(id, count, totalItems);

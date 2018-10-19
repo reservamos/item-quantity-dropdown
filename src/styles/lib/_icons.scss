@@ -1,0 +1,31 @@
+.iqdropdown .icon-decrement {
+  display: inline-block;
+  height: 15px;
+  margin: auto;
+  min-width: 15px;
+  position: relative;
+  width: 15px;
+
+  &::after{
+    background: #5592BE;
+    content: '';
+    display: block;
+    height: 3px;
+    position: absolute;
+    top: 6px;
+    transition: transform .25s ease-in-out;
+    width: 15px;
+  }
+
+  &.icon-increment::before {
+    background: #5592BE;
+    content: '';
+    display: block;
+    height: 3px;
+    position: absolute;
+    top: 6px;
+    transform: rotate(90deg);
+    transition: transform .25s ease-in-out;
+    width: 15px;
+  }
+}

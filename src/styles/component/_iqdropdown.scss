@@ -1,139 +1,34 @@
 @import "../app";
+@import "iqdropdown-menu";
+@import "item-description";
+@import "controls";
 
 .iqdropdown {
-  -webkit-tap-highlight-color: transparent;
+  align-items: center;
   border: $iqdropdown-border;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
   height: $iqdropdown-height;
-  line-height: $base-line-height;
+  justify-content: space-between;
+  padding: 0 15px;
   position: relative;
   width: 100%;
 
-  .iqdropdown-description {
-    @include image(url('/src/images/passenger-icon.png') no-repeat, inline-block, 21px, 20px, 100% auto, middle);
-    line-height: $iqdropdown-height;
-    margin: $iqdropdown-padding ($iqdropdown-padding / 2) 0 $iqdropdown-padding;
-  }
-
   .iqdropdown-selection {
-    @include font($main-blue, $OpenSans, 17px, 600, normal);
+    @include font(17px);
     flex: 1;
-    line-height: $iqdropdown-height;
-    margin: 0;
-    padding: 0 ($iqdropdown-padding * 2.5) 0 ($iqdropdown-padding / 2);
     position: relative;
 
-    &.menu-open {
-      &::after {
-        @include image(url('/src/images/dropdown-arrow-up.png') no-repeat, inline-block, 5px, 12px, 100% auto, middle);
-      }
-    }
-  }
-
-  .iqdropdown-selection::after {
-    @include image(url('/src/images/dropdown-arrow-down.png') no-repeat, inline-block, 5px, 12px, 100% auto, middle);
-    color: $base-font-color;
-    content: '';
-    display: block;
-    position: absolute;
-    right: $iqdropdown-padding;
-    top: $iqdropdown-arrow-top-distance;
-  }
-
-  .iqdropdown-menu {
-    background: $iqdropdown-background;
-    border: $dropdown-border;
-    color: $iqdropdown-color;
-    cursor: default;
-    display: none;
-    left: 0;
-    margin: -1px;
-    overflow: show;
-    padding: 0 15px;
-    position: absolute;
-    right: 0;
-    top: $iqdropdown-distance-from-menu;
-    transition: all 0.2s ease-in-out;
-    z-index: 99999;
-
-    li {
-      border-bottom: $dropdown-border;
-      color: $iqdropdown-color;
-      display: flex;
-      list-style: none;
-      padding: 15px 0;
-
-      .iqdropdown-item-display {
-        @include font($main-blue, $OpenSans, 17px, 500, normal);
-        flex: 1;
-
-        span {
-          @include font(#6091BD, $OpenSans, 12px, 400, normal);
-          display: block;
-          line-height: $item-display-line-height;
-        }
-      }
-
-      .iqdropdown-item-controls {
-        @include font($main-blue, $OpenSans, 17px, 500, normal);
-        border: $dropdown-border;
-        border-radius: 50px;
-        display: flex;
-        overflow: hidden;
-
-        .counter {
-          padding: 11px 20px;
-        }
-
-        button {
-          @include font($main-blue, $OpenSans, 15px, 700, normal);
-          appearance: none;
-          background: none;
-          border: none;
-          cursor: pointer;
-          margin: 0;
-          padding: 10px 20px;
-
-          .less {
-            @include image(url('/src/images/less.png') no-repeat, inline-block, 3px, 15px, 100% auto, middle);
-          }
-
-          .more {
-            @include image(url('/src/images/more.png') no-repeat, inline-block, 15px, 15px, 100% auto, middle);
-          }
-
-          &:first-child {
-            border-right: $dropdown-border;
-          }
-
-          &:last-child {
-            border-left: $dropdown-border;
-          }
-
-          &:focus {
-            outline: none;
-          }
-        }
-      }
+    &::after {
+      @include background-image('/src/images/dropdown-arrow-down.png', 5px, 12px);
+      position: absolute;
+      right: 0;
+      top: 10px;
     }
 
-    li:last-child {
-      border-bottom: 0;
+    &.menu-open::after {
+      background-image: url('/src/images/dropdown-arrow-up.png');
     }
   }
-
-  .show-menu {
-    display: block;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  .iqdropdown
-    .iqdropdown-menu li
-      .iqdropdown-item-controls
-        button:hover {
-          background-color: $iqdropdown-background-hover;
-        }
 }
