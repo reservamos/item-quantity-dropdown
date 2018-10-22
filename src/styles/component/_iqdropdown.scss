@@ -28,7 +28,11 @@
     }
   }
 
-  &.menu-open .iqdropdown-selection::after {
-    background-image: url('/src/images/dropdown-arrow-up.png');
+  &.menu-open {
+    border-color: $primary-700;
+
+    .iqdropdown-selection::after {
+      background-image: url('/src/images/dropdown-arrow-up.png');
+    }
   }
 }

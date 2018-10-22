@@ -5,11 +5,11 @@
   }
 
   &-item {
-    @include font-styles;
+    @include font-styles($color: #000000);
   }
 
   p.iqdropdown-description {
-    @include font-styles(12px);
+    @include font-styles(14px, $gray-900);
     margin-top: 5px;
   }
 }

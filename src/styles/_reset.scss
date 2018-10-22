@@ -19,6 +19,10 @@ body {
 }
 
 .iqdropdown {
+  // This feature is non-standard, it will not work for every user
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+
   * {
     // This feature is non-standard, it will not work for every user
     -webkit-tap-highlight-color: transparent;
