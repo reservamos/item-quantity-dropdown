@@ -7,7 +7,7 @@
   width: $icon-size;
 
   &::after{
-    background: #5592BE;
+    background: $icon-color;
     content: '';
     display: block;
     height: 3px;
@@ -18,7 +18,7 @@
   }
 
   &.icon-increment::before {
-    background: #5592BE;
+    background: $icon-color;
     content: '';
     display: block;
     height: 3px;

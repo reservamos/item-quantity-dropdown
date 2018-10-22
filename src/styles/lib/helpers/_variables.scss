@@ -1,10 +1,10 @@
 // Variables used in project
 
-$iqdropdown-input-border: 1px solid #D0D0D0;
-$iqdropdown-border: 1px solid #B4D9FA;
-$iqdropdown-background: #F6FBFF;
-$iqdropdown-background-hover: darken($iqdropdown-background, 3%);
+$iqdropdown-border: 1px solid $gray-200;
+$iqdropdown-shadow: 0 0 10px rgba(0,0,0,.2);
+$iqdropdown-background-hover: $gray-100;
 $iqdropdown-height: 50px;
 $iqdropdown-menu-height: 75px;
 $iqdropdown-radius: 25px;
 $icon-size: 15px;
+$icon-color: $primary-700;

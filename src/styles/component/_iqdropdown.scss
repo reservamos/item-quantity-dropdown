@@ -5,7 +5,7 @@
 
 .iqdropdown {
   align-items: center;
-  border: $iqdropdown-input-border;
+  border: $iqdropdown-border;
   border-radius: 4px;
   cursor: pointer;
   display: flex;
@@ -16,7 +16,7 @@
   width: 100%;
 
   .iqdropdown-selection {
-    @include font(17px);
+    @include font(17px, 400, $gray-900);
     flex: 1;
     position: relative;
 

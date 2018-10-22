@@ -1,10 +1,9 @@
 .iqdropdown .iqdropdown-menu {
-  background: $iqdropdown-background;
-  border: $iqdropdown-border;
+  box-shadow: $iqdropdown-shadow;
   cursor: default;
   display: none;
   left: 0;
-  margin: -1px;
+  margin: -2px -1px -1px;
   position: absolute;
   right: 0;
   top: $iqdropdown-height;
@@ -14,7 +13,6 @@
   &-option {
     @include last-child('border');
     align-items: center;
-    border-bottom: $iqdropdown-border;
     display: flex;
     height: $iqdropdown-menu-height;
     padding: 0 15px;
