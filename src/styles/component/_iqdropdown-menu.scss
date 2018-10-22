@@ -19,9 +19,24 @@
       height: $iqdropdown-menu-height;
       padding: 0 15px;
     }
+
+    &-close {
+      @include font-styles(14px, $primary-700, 600);
+      height: 20px;
+      margin: 20px 0;
+      padding: 0 15px;
+      text-align: right;
+      width: 100%;
+    }
   }
 
   &.menu-open .iqdropdown-menu {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .iqdropdown .iqdropdown-menu.mobile-top-menu {
+    top: -285px;
   }
 }
