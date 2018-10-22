@@ -88,10 +88,6 @@
     <script type="text/javascript">
       $(document).ready(function () {
         $(".no-config").iqDropdown({
-          controls: {
-            incrementText: '<i class="icon-decrement icon-increment"></i>',
-            decrementText: '<i class="icon-decrement"></i>'
-          },
         });
 
         $(".custom").iqDropdown({
@@ -99,10 +95,6 @@
           maxItems: 5,
           selectionText: 'passenger',
           textPlural: 'passengers',
-          controls: {
-            incrementText: '<i class="icon-decrement icon-increment"></i>',
-            decrementText: '<i class="icon-decrement"></i>'
-          },
           onChange: function (id, count, totalItems) {
             console.log(id, count, totalItems);
           },

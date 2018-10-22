@@ -1,24 +1,27 @@
-.iqdropdown .iqdropdown-menu {
-  box-shadow: $iqdropdown-shadow;
-  cursor: default;
-  display: none;
-  left: 0;
-  margin: -2px -1px -1px;
-  position: absolute;
-  right: 0;
-  top: $iqdropdown-height;
-  transition: all 0.2s ease-in-out;
-  z-index: 99999;
+.iqdropdown {
+  .iqdropdown-menu {
+    background-color: #FFFFFF;
+    box-shadow: $iqdropdown-shadow;
+    cursor: default;
+    display: none;
+    left: 0;
+    margin: -2px -1px -1px;
+    position: absolute;
+    right: 0;
+    top: $iqdropdown-height;
+    transition: all 0.2s ease-in-out;
+    z-index: 99999;
 
-  &-option {
-    @include last-child('border');
-    align-items: center;
-    display: flex;
-    height: $iqdropdown-menu-height;
-    padding: 0 15px;
+    &-option {
+      @include last-child('border');
+      align-items: center;
+      display: flex;
+      height: $iqdropdown-menu-height;
+      padding: 0 15px;
+    }
   }
 
-  &.show-menu {
+  &.menu-open .iqdropdown-menu {
     display: block;
   }
 }

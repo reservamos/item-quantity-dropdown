@@ -26,9 +26,9 @@
       right: 0;
       top: 10px;
     }
+  }
 
-    &.menu-open::after {
-      background-image: url('/src/images/dropdown-arrow-up.png');
-    }
+  &.menu-open .iqdropdown-selection::after {
+    background-image: url('/src/images/dropdown-arrow-up.png');
   }
 }
