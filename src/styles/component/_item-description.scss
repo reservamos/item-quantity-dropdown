@@ -9,7 +9,7 @@
   }
 
   p.iqdropdown-description {
-    @include font-styles(14px, $gray-900);
+    @include font-styles(14px);
     margin-top: 5px;
   }
 }

@@ -16,7 +16,7 @@
   width: 100%;
 
   .iqdropdown-selection {
-    @include font-styles(17px, $gray-900);
+    @include font-styles(17px);
     flex: 1;
     position: relative;
 
