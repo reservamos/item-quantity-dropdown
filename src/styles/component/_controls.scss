@@ -2,7 +2,7 @@
   display: flex;
 
   .counter {
-    @include font(17px, 500);
+    @include font-styles;
     border-bottom: $iqdropdown-border;
     border-top: $iqdropdown-border;
     padding: 11px 20px;

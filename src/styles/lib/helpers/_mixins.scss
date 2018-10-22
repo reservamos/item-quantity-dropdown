@@ -1,6 +1,6 @@
 // Miscellaneous mixins
 
-@mixin font ($size, $weight: 400, $color: $primary-700, $family: $primary-font) {
+@mixin font-styles ($size: 17px, $color: $primary-700, $weight: 400, $family: $primary-font) {
   color: $color;
   font-family: $family;
   font-size: $size;
