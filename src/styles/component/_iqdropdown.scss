@@ -16,7 +16,7 @@
   width: 100%;
 
   .iqdropdown-selection {
-    @include font-styles(17px);
+    @include font-styles($iqdropdown-fontsize-l);
     flex: 1;
     position: relative;
 
@@ -29,7 +29,7 @@
   }
 
   &.menu-open {
-    border-color: $primary-700;
+    border-color: $iqdropdown-border-active;
 
     .iqdropdown-selection::after {
       background-image: url('/src/images/dropdown-arrow-up.png');

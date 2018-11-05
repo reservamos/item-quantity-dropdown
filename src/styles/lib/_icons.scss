@@ -1,24 +1,24 @@
 .iqdropdown .icon-decrement {
   display: inline-block;
-  height: $icon-size;
+  height: $iqdropdown-icon-size;
   margin: auto;
-  min-width: $icon-size;
+  min-width: $iqdropdown-icon-size;
   position: relative;
-  width: $icon-size;
+  width: $iqdropdown-icon-size;
 
   &::after{
-    background: $icon-color;
+    background: $iqdropdown-icon-color;
     content: '';
     display: block;
     height: 3px;
     position: absolute;
     top: 6px;
     transition: transform .25s ease-in-out;
-    width: $icon-size;
+    width: $iqdropdown-icon-size;
   }
 
   &.icon-increment::before {
-    background: $icon-color;
+    background: $iqdropdown-icon-color;
     content: '';
     display: block;
     height: 3px;
@@ -26,6 +26,6 @@
     top: 6px;
     transform: rotate(90deg);
     transition: transform .25s ease-in-out;
-    width: $icon-size;
+    width: $iqdropdown-icon-size;
   }
 }
