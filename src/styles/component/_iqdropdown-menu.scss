@@ -22,7 +22,7 @@
 
     &-close {
       @include font-styles($iqdropdown-fontsize-m, $primary-700, 600);
-      height: 20px;
+      height: $iqdropdown-close-size;
       margin: 20px 0;
       padding: 0 15px;
       text-align: right;

@@ -1,5 +1,6 @@
 .iqdropdown .iqdropdown-item-controls {
   display: flex;
+  height: $iqdropdown-controls-size;
 
   .counter {
     @include font-styles;
@@ -12,7 +13,7 @@
     align-items: center;
     border: $iqdropdown-border;
     display: flex;
-    height: 45px;
+    height: $iqdropdown-controls-size;
     padding: 0 20px;
 
     &:hover {
