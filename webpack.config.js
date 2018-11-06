@@ -55,7 +55,10 @@ const config = {
             loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
           },
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
           },
           {
             loader: 'postcss-loader',
@@ -88,7 +91,9 @@ const config = {
   resolve: {
     extensions: ['.js', '.css', '.scss'],
     modules: ['src', 'node_modules']
-  }
+  },
+
+  devtool: 'source-map'
 };
 
 if (devMode) {
