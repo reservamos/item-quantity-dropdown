@@ -12,6 +12,7 @@
     "quote-props": [2, "consistent-as-needed"],
     "object-curly-newline": [2, { "consistent": true }],
     "no-return-assign": [2, "except-parens"],
+    "no-param-reassign": 0,
     "no-console": 0
   },
 

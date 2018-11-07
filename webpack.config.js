@@ -16,7 +16,7 @@ const config = {
     filename: devMode ? `${pluginName}.js` : `${pluginName}.min.js`,
     library: pluginName,
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
 
   module: {
@@ -26,7 +26,7 @@ const config = {
         enforce: 'pre',
         test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
       },
       {
         // JS
@@ -36,71 +36,71 @@ const config = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        ]
+              presets: ['@babel/preset-env'],
+            },
+          },
+        ],
       },
       {
         // Expose jQuery
         test: /jquery\.js$/,
         include: path.resolve(__dirname, 'node_modules/jquery/dist'),
-        loader: 'expose-loader?jQuery!expose-loader?$'
+        loader: 'expose-loader?jQuery!expose-loader?$',
       },
       {
         // CSS / SASS
         test: /\.s?css$/,
         use: [
           {
-            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               plugins: [autoprefixerPlugin],
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
-            loader: 'resolve-url-loader'
+            loader: 'resolve-url-loader',
           },
           {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              includePaths: [path.resolve(__dirname, 'src')]
-            }
-          }
-        ]
-      }
-    ]
+              includePaths: [path.resolve(__dirname, 'src')],
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `${pluginName}.min.css`
-    })
+      filename: `${pluginName}.min.css`,
+    }),
   ],
 
   resolve: {
     extensions: ['.js', '.css', '.scss'],
-    modules: ['src', 'node_modules']
+    modules: ['src', 'node_modules'],
   },
 
-  devtool: 'source-map'
+  devtool: 'source-map',
 };
 
 if (devMode) {
   config.plugins.push(
     new HtmlWebpackPlugin({
-      template: 'test/index.html'
-    })
+      template: 'test/index.html',
+    }),
   );
   config.devServer = { host: '0.0.0.0' };
 }
