@@ -39,10 +39,10 @@ bower install item-quantity-dropdown --save
 Then import/require it:
 
 ```javascript
-import "item-quantity-dropdown";
-import "item-quantity-dropdown/lib/item-quantity-dropdown.css";
-require("item-quantity-dropdown");
-require("item-quantity-dropdown/lib/item-quantity-dropdown.css");
+import 'item-quantity-dropdown';
+import 'item-quantity-dropdown/lib/item-quantity-dropdown.css';
+require('item-quantity-dropdown');
+require('item-quantity-dropdown/lib/item-quantity-dropdown.css');
 ```
 
 ## Usage
@@ -113,11 +113,11 @@ $(document).ready(() => {
     counterCls: 'counter'
   },
   // fires when an item quantity changes
-  onChange: function (id, count, totalItems) {},
+  onChange: (id, count, totalItems) => {},
   // return false to prevent an item decrement
-  beforeDecrement: function (id, itemCount) {},
+  beforeDecrement: (id, itemCount) => {},
   // return false to prevent an item increment
-  beforeIncrement: function (id, itemCount) {}
+  beforeIncrement: (id, itemCount) => {}
 }
 ```
 
