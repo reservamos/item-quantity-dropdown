@@ -1,7 +1,7 @@
 /* global jQuery */
 
 // plugin styles
-import 'index.scss';
+import 'styles/main.scss';
 
 (function ($) {
   const defaults = {
@@ -11,9 +11,7 @@ import 'index.scss';
     textPlural: 'items',
     controls: {
       position: 'right',
-      incrementText: '+',
-      decrementText: '-',
-      displayCls: 'iqdropdown-item-display',
+      displayCls: 'iqdropdown-content',
       controlsCls: 'iqdropdown-item-controls',
       counterCls: 'counter'
     },
@@ -24,9 +22,10 @@ import 'index.scss';
   };
 
   $.fn.iqDropdown = function (options) {
-    const $selection = this.find('p').last();
-    const $menu = this.find('ul');
-    const $items = $menu.find('li');
+    const $selection = this.find('p.iqdropdown-selection').last();
+    const $component = this.closest('div');
+    const $menu = this.find('div.iqdropdown-menu');
+    const $items = $menu.find('div.iqdropdown-menu-option');
     const settings = $.extend(true, {}, defaults, options);
     let itemCount = {};
     let totalItems = 0;
@@ -43,8 +42,9 @@ import 'index.scss';
 
     function addControls (id, $item, updateDisplay) {
       const $controls = $('<div />').addClass(settings.controls.controlsCls);
-      const $decrementButton = $(`<button>${settings.controls.decrementText}</button>`);
-      const $incrementButton = $(`<button>${settings.controls.incrementText}</button>`);
+      const $decrementButton = $('<button class="button-decrement"><i class="icon-decrement"></i></button>');
+      const $incrementButton = $(
+        '<button class="button-increment"><i class="icon-decrement icon-increment"></i></button>');
       const $counter = $(`<span>${itemCount[id]}</span>`).addClass(settings.controls.counterCls);
 
       $item.children('div').addClass(settings.controls.displayCls);
@@ -94,8 +94,7 @@ import 'index.scss';
     }
 
     this.click(() => {
-      $selection.toggleClass('menu-open');
-      $menu.toggleClass('show-menu');
+      $component.toggleClass('menu-open');
     });
 
     $items.each(function () {

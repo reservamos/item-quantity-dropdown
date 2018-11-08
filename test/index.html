@@ -2,76 +2,88 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Item Quantity Dropdown</title>
 
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
-
+    <style media="screen">
+      .l-container {
+        max-width: calc(500px + 20px);
+        margin: 0 auto;
+        padding: 0 10px;
+        width: 100%;
+      }
+    </style>
   </head>
 
   <body>
-    <h2>Item Quantity Dropdown Demo</h2>
+    <div class="l-container">
+      <h2>Item Quantity Dropdown Demo</h2>
+      <h3>No config options</h3>
+      <div class="no-config iqdropdown">
+        <p class="iqdropdown-selection"></p>
+        <div class="iqdropdown-menu">
+          <div class="iqdropdown-menu-option" data-id="item1">
+            <div>
+              <p class="iqdropdown-item">Item 1</p>
+              <p class="iqdropdown-description">A short description</p>
+            </div>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item2">
+            <div>
+              <p class="iqdropdown-item">Item 2</p>
+              <p class="iqdropdown-description">A short description</p>
+            </div>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item3">
+            <div>
+              <p class="iqdropdown-item">Item 3</p>
+              <p class="iqdropdown-description">A short description</p>
+            </div>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item4">
+            <div>
+              <p class="iqdropdown-item">Item 4</p>
+              <p class="iqdropdown-description">A short description</p>
+            </div>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="item5">
+            <div>
+              <p class="iqdropdown-item">Item 5</p>
+              <p class="iqdropdown-description">A short description</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <h3>No config options</h3>
+      <h3>Custom config</h3>
 
-    <div class="no-config iqdropdown">
-      <p class="iqdropdown-selection"></p>
-      <ul class="iqdropdown-menu">
-        <li data-id="item1">
-          <div>
-            Item 1
-            <span>A short description</span>
+      <div class="custom iqdropdown">
+        <p class="iqdropdown-selection"></p>
+        <div class="iqdropdown-menu">
+          <div class="iqdropdown-menu-option" data-id="adult" data-defaultcount=1 data-mincount=1>
+            <div>
+              <p class="iqdropdown-item">Adults</p>
+              <p class="iqdropdown-description">12+ years</p>
+            </div>
           </div>
-        </li>
-        <li data-id="item2">
-          <div>
-            Item 2
-            <span>A short description</span>
+          <div class="iqdropdown-menu-option" data-id="minor" data-defaultcount=0 data-mincount=0>
+            <div>
+              <p class="iqdropdown-item">Children</p>
+              <p class="iqdropdown-description">2 - 11 years</p>
+            </div>
           </div>
-        </li>
-        <li data-id="item3">
-          <div>
-            Item 3
-            <span>A short description</span>
+          <div class="iqdropdown-menu-option" data-id="infant">
+            <div>
+              <p class="iqdropdown-item">Infants</p>
+              <p class="iqdropdown-description">2 years</p>
+            </div>
           </div>
-        </li>
-        <li data-id="item4">
-          <div>
-            Item 4
-            <span>A short description</span>
-          </div>
-        </li>
-        <li data-id="item5">
-          <div>
-            Item 5
-            <span>A short description</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <h3>Custom config</h3>
-
-    <div class="custom iqdropdown">
-      <span class="iqdropdown-description"></span>
-      <p class="iqdropdown-selection"></p>
-      <ul class="iqdropdown-menu">
-        <li data-id="adult" data-defaultcount=1 data-mincount=1>
-          <div>Adult
-            <span>12+ years</span>
-          </div>
-        </li>
-        <li data-id="minor" data-defaultcount=0 data-mincount=0>
-          <div>Minor
-            <span>2 - 11 years</span>
-          </div>
-        </li>
-        <li data-id="infant">
-          <div>Infant
-            <span>2- years</span>
-          </div>
-        </li>
-      </ul>
+          <button class="iqdropdown-menu-close">
+            Cerrar
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
@@ -85,10 +97,6 @@
           maxItems: 5,
           selectionText: 'passenger',
           textPlural: 'passengers',
-          controls: {
-            incrementText: '<i class="more"></i>',
-            decrementText: '<i class="less"></i>'
-          },
           onChange: function (id, count, totalItems) {
             console.log(id, count, totalItems);
           },
