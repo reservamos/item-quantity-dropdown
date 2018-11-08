@@ -49,9 +49,16 @@ import 'styles/main.scss';
 
     function addControls (id, $item) {
       const $controls = $('<div />').addClass(settings.controls.controlsCls);
-      const $decrementButton = $('<button class="button-decrement"><i class="icon-decrement"></i></button>');
-      const $incrementButton = $(
-        '<button class="button-increment"><i class="icon-decrement icon-increment"></i></button>');
+      const $decrementButton = $(`
+        <button class="button-decrement">
+          <i class="icon-decrement"></i>
+        </button>
+      `);
+      const $incrementButton = $(`
+        <button class="button-increment">
+          <i class="icon-decrement icon-increment"></i>
+        </button>
+      `);
       const $counter = $(`<span>${itemCount[id]}</span>`).addClass(settings.controls.counterCls);
 
       $item.children('div').addClass(settings.controls.displayCls);
