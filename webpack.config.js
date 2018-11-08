@@ -1,74 +1,111 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+// const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const autoprefixerPlugin = require('autoprefixer');
 
-var environment = process.env.NODE_ENV;
-var pluginName = 'item-quantity-dropdown';
-var outputFile;
+const devMode = process.env.NODE_ENV === 'development';
+const pluginName = 'item-quantity-dropdown';
 
-var config = {
+const config = {
+  mode: process.env.NODE_ENV,
   entry: './src/index.js',
 
   output: {
-    path: './lib',
-    filename: outputFile,
+    path: path.resolve(__dirname, 'lib'),
+    filename: devMode ? `${pluginName}.js` : `${pluginName}.min.js`,
     library: pluginName,
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
 
   module: {
-    loaders: [
+    rules: [
       {
+        // ESLint
+        enforce: 'pre',
         test: /\.js$/,
-        loaders: ['babel', 'eslint'],
-        exclude: /node_modules/
-      }, {
+        include: path.resolve(__dirname, 'src'),
+        loader: 'eslint-loader',
+      },
+      {
+        // JS
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'src'),
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        ],
+      },
+      {
+        // Expose jQuery
         test: /jquery\.js$/,
-        loader: 'expose?jQuery'
-      }, {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style',
-          ['css', 'postcss', 'resolve-url', 'sass']
-        ),
-        include: [path.resolve(__dirname, 'src')]
-      }
-    ]
+        include: path.resolve(__dirname, 'node_modules/jquery/dist'),
+        loader: 'expose-loader?jQuery!expose-loader?$',
+      },
+      {
+        // CSS / SASS
+        test: /\.s?css$/,
+        use: [
+          {
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixerPlugin],
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'resolve-url-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: [path.resolve(__dirname, 'src')],
+            },
+          },
+        ],
+      },
+    ],
   },
-  
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 versions']
-    })
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: `${pluginName}.min.css`,
+    }),
+    new StyleLintPlugin({
+      configFile: path.resolve(__dirname, '.stylelintrc.json'),
+      context: path.resolve(__dirname, 'src'),
+    }),
   ],
 
-  sassLoader: {
-    includePaths: [
-      path.resolve(__dirname, 'src')
-    ]
+  resolve: {
+    extensions: ['.js', '.css', '.scss'],
+    modules: ['src', 'node_modules'],
   },
 
-  plugins: [],
-
-  resolve: {
-    root: path.resolve('./src'),
-    extensions: ['', '.js']
-  }
+  devtool: 'source-map',
 };
 
-if (environment === 'production') {
-  config.output.filename = `${pluginName}.min.js`;
+if (devMode) {
   config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin(`${pluginName}.min.css`)
-  );
-} else {
-  config.output.filename = `${pluginName}.js`;
-  config.plugins.push(
-    new HtmlWebpackPlugin({ template: 'test/index.html' }),
-    new ExtractTextPlugin(`${pluginName}.css`)
+    new HtmlWebpackPlugin({
+      template: 'test/index.html',
+    }),
   );
   config.devServer = { host: '0.0.0.0' };
 }
