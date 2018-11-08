@@ -31,7 +31,7 @@ Dropdown menu to select items with quantities
 ### Yarn + Bower
 
 ```shell
-yarn install item-quantity-dropdown
+yarn add item-quantity-dropdown
 # or
 bower install item-quantity-dropdown --save
 ```
