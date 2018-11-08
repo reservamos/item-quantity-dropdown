@@ -1,15 +1,20 @@
 # item-quantity-dropdown jQuery plugin
+
 Dropdown menu to select items with quantities
 
 ![Demo](https://raw.githubusercontent.com/reserbus/item-quantity-dropdown/master/test/demo.gif)
 
 ## Dependencies:
+
 - jquery: ^3.0.0
 
 ## Installation
+
 ### Direct Download
+
 - Download the script [here](https://github.com/reserbus/item-quantity-dropdown/blob/master/lib/item-quantity-dropdown.min.js) and include it as shown below
 - Download the stylesheet [here](https://github.com/reserbus/item-quantity-dropdown/blob/master/lib/item-quantity-dropdown.min.css) and include it as shown below
+
 ```html
 <html>
   <head>
@@ -23,58 +28,73 @@ Dropdown menu to select items with quantities
 </html>
 ```
 
-### NPM + Bower
+### Yarn + Bower
+
 ```shell
-npm install item-quantity-dropdown --save-dev
+yarn install item-quantity-dropdown
 # or
 bower install item-quantity-dropdown --save
 ```
 
 Then import/require it:
+
 ```javascript
-import 'item-quantity-dropdown';
-import 'item-quantity-dropdown/lib/item-quantity-dropdown.css';
-require('item-quantity-dropdown');
-require('item-quantity-dropdown/lib/item-quantity-dropdown.css');
+import "item-quantity-dropdown";
+import "item-quantity-dropdown/lib/item-quantity-dropdown.css";
+require("item-quantity-dropdown");
+require("item-quantity-dropdown/lib/item-quantity-dropdown.css");
 ```
 
 ## Usage
-- In Markup:
+
+### Markup
+
 ```html
 <div class="iqdropdown">
-  <p class="iqdropdown-description">Select Passengers</p>
   <p class="iqdropdown-selection"></p>
-  <ul class="iqdropdown-menu">
-    <li data-id="item1" data-defaultcount=1>
-      <div>Item One</div>
-    </li>
-    <li data-id="item2" data-defaultcount=0>
-      <div>Item Two</div>
-    </li>
-    <li data-id="item3" data-defaultcount=0>
-      <div>Item Three</div>
-    </li>
-  </ul>
+  <div class="iqdropdown-menu">
+    <div class="iqdropdown-menu-option" data-id="item1">
+      <div>
+        <p class="iqdropdown-item">Item 1</p>
+        <p class="iqdropdown-description">A short description</p>
+      </div>
+    </div>
+    <div class="iqdropdown-menu-option" data-id="item2">
+      <div>
+        <p class="iqdropdown-item">Item 2</p>
+        <p class="iqdropdown-description">A short description</p>
+      </div>
+    </div>
+    <div class="iqdropdown-menu-option" data-id="item3">
+      <div>
+        <p class="iqdropdown-item">Item 3</p>
+        <p class="iqdropdown-description">A short description</p>
+      </div>
+    </div>
+  </div>
 </div>
 ```
 
-- In Javascript:
+### JavaScript
+
 ```javascript
-$(document).ready(function () {
+$(document).ready(() => {
   $('.iqdropdown').iqDropdown({ [options] });
 });
 ```
 
-### Config options:
+### Config options
 
-## Item specific using data attributes
+#### Item specific using data attributes
+
 ```html
 <li data-id="item1" data-defaultcount="0" data-mincount="0" data-maxcount="1">
   ···
 </li>
 ```
 
-## Globals on initialization
+#### Globals on initialization
+
 ```javascript
 {
   // max total items
@@ -84,12 +104,10 @@ $(document).ready(function () {
   // text to show on the dropdown
   selectionText: 'item',
   // text to show for multiple items
-  textPlural: '',
+  textPlural: 'items',
   // buttons to increment/decrement
   controls: {
     position: 'right',
-    incrementText: '+',
-    decrementText: '-',
     displayCls: 'iqdropdown-item-display',
     controlsCls: 'iqdropdown-item-controls',
     counterCls: 'counter'
@@ -104,34 +122,32 @@ $(document).ready(function () {
 ```
 
 ### Demo
+
 A demo is included [here](https://github.com/reserbus/item-quantity-dropdown/blob/master/lib/index.html)
 
 ## Contributing
 
 ### Running
+
 ```shell
 # install dependencies
-npm i
+yarn
 # start the project
-npm start
+yarn start
 ```
 
 Now open up [http://localhost:8080](http://localhost:8080)
 
 ### Build
+
 ```shell
 # install dependencies
-npm i
-# development build
-npm run build
-# production build
-NODE_ENV=production npm run build
+yarn
+# make a css and js bundle
+yarn build
 ```
 
-Development build outputs the following files:
-- item-quantity-dropdown.js
-- item-quantity-dropdown.css
+The build script outputs the following (minified) files:
 
-Production build outputs the following (minified) files:
 - item-quantity-dropdown.min.js
 - item-quantity-dropdown.min.css
