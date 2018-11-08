@@ -2,6 +2,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const autoprefixerPlugin = require('autoprefixer');
 
 const devMode = process.env.NODE_ENV === 'development';
@@ -85,6 +86,10 @@ const config = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${pluginName}.min.css`,
+    }),
+    new StyleLintPlugin({
+      configFile: path.resolve(__dirname, '.stylelintrc.json'),
+      context: path.resolve(__dirname, 'src'),
     }),
   ],
 
