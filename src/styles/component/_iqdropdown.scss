@@ -1,0 +1,38 @@
+@import '../app';
+@import 'iqdropdown-menu';
+@import 'item-description';
+@import 'controls';
+
+.iqdropdown {
+  align-items: center;
+  border: $iqdropdown-border;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  height: $iqdropdown-height;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: relative;
+  width: 100%;
+
+  .iqdropdown-selection {
+    @include font-styles($iqdropdown-fontsize-l);
+    flex: 1;
+    position: relative;
+
+    &::after {
+      @include background-image('/src/images/dropdown-arrow-down.png', 5px, 12px);
+      position: absolute;
+      right: 0;
+      top: 40%;
+    }
+  }
+
+  &.menu-open {
+    border-color: $iqdropdown-border-active;
+
+    .iqdropdown-selection::after {
+      background-image: url('/src/images/dropdown-arrow-up.png');
+    }
+  }
+}

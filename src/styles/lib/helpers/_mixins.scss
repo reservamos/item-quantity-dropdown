@@ -1,0 +1,25 @@
+// Miscellaneous mixins
+
+@mixin font-styles ($size: $iqdropdown-fontsize-l, $color: $gray-900, $weight: 400, $family: $primary-font) {
+  color: $color;
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin background-image ($imgpath, $height, $width: 100%, $display: inline-block, $bg-size: contain, $bg-pos: center) {
+  background-image: url($imgpath);
+  background-position: $bg-pos;
+  background-repeat: no-repeat;
+  background-size: $bg-size;
+  content: '';
+  display: $display;
+  height: $height;
+  width: $width;
+}
+
+@mixin last-child($prop: margin) {
+  &:last-child {
+    #{$prop}: 0;
+  }
+}

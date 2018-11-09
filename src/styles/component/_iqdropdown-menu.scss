@@ -1,0 +1,42 @@
+.iqdropdown {
+  .iqdropdown-menu {
+    background-color: #FFFFFF;
+    box-shadow: $iqdropdown-shadow;
+    cursor: default;
+    display: none;
+    left: 0;
+    margin: -2px -1px -1px;
+    position: absolute;
+    right: 0;
+    top: $iqdropdown-height;
+    transition: all 0.2s ease-in-out;
+    z-index: 99999;
+
+    &-option {
+      @include last-child('border');
+      align-items: center;
+      display: flex;
+      height: $iqdropdown-menu-height;
+      padding: 0 15px;
+    }
+
+    &-close {
+      @include font-styles($iqdropdown-fontsize-m, $primary-700, 600);
+      height: $iqdropdown-close-size;
+      margin: 20px 0;
+      padding: 0 15px;
+      text-align: right;
+      width: 100%;
+    }
+  }
+
+  &.menu-open .iqdropdown-menu {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .iqdropdown .iqdropdown-menu.mobile-top-menu {
+    top: -285px;
+  }
+}
