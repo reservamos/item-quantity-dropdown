@@ -2,7 +2,7 @@
 
 Dropdown menu to select items with quantities
 
-![Demo](https://raw.githubusercontent.com/reserbus/item-quantity-dropdown/master/test/demo.gif)
+![Demo](https://raw.githubusercontent.com/reservamos/item-quantity-dropdown/master/test/demo.gif)
 
 ## Dependencies:
 
