@@ -87,11 +87,7 @@ const config = {
       {
         // Ship Images
         test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-          },
-        ],
+        use: 'url-loader',
       },
     ],
   },
