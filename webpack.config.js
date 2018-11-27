@@ -10,6 +10,7 @@ const pluginName = 'item-quantity-dropdown';
 
 const config = {
   mode: process.env.NODE_ENV,
+
   entry: './src/index.js',
 
   output: {
@@ -70,6 +71,9 @@ const config = {
           },
           {
             loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true,
+            },
           },
           {
             loader: 'sass-loader',
@@ -79,6 +83,11 @@ const config = {
             },
           },
         ],
+      },
+      {
+        // Ship Images
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: 'url-loader',
       },
     ],
   },

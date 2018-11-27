@@ -21,7 +21,7 @@
     position: relative;
 
     &::after {
-      @include background-image('/src/images/dropdown-arrow-down.png', 5px, 12px);
+      @include background-image('../../../images/dropdown-arrow-down.png', 5px, 12px);
       position: absolute;
       right: 0;
       top: 40%;
@@ -32,7 +32,7 @@
     border-color: $iqdropdown-border-active;
 
     .iqdropdown-selection::after {
-      background-image: url('/src/images/dropdown-arrow-up.png');
+      background-image: url('../../../src/images/dropdown-arrow-up.png');
     }
   }
 }
