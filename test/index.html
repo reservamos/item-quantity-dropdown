@@ -138,7 +138,42 @@
           </button>
         </div>
       </div>
-    </div>
+
+      <h3>Custom message</h3>
+
+      <div class="custom-message iqdropdown">
+        <p class="iqdropdown-selection"></p>
+        <div class="iqdropdown-menu">
+          <div
+            class="iqdropdown-menu-option"
+            data-id="item-a"
+            data-defaultcount="0"
+            data-mincount="0"
+            data-maxcount="5"
+          >
+            <div>
+              <p class="iqdropdown-item">Item A</p>
+            </div>
+          </div>
+          <div
+            class="iqdropdown-menu-option"
+            data-id="item-b"
+            data-defaultcount="0"
+            data-mincount="0"
+            data-maxcount="5"
+          >
+            <div>
+              <p class="iqdropdown-item">Item B</p>
+            </div>
+          </div>
+
+          <button class="iqdropdown-menu-close">
+            Cerrar
+          </button>
+        </div>
+      </div>
+
+    </div> <!-- Container -->
 
     <script
       src="https://code.jquery.com/jquery-3.0.0.min.js"
@@ -169,6 +204,19 @@
               return itemCount.adult > itemCount.infant;
             }
             return true;
+          }
+        });
+
+        $(".custom-message").iqDropdown({
+          minItems: 0,
+          onChange: function(id, count, totalItems) {
+            console.log(id, count, totalItems);
+          },
+          getCustomMessage: function (itemCount, totalItems) {
+            const items = Object.keys(itemCount)
+              .map(key => itemCount[key])
+              .join(' + ');
+            return items + ' = ' + totalItems;
           }
         });
       });
