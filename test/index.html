@@ -212,7 +212,7 @@
           onChange: function(id, count, totalItems) {
             console.log(id, count, totalItems);
           },
-          getCustomMessage: function (itemCount, totalItems) {
+          setSelectionText: function (itemCount, totalItems) {
             const items = Object.keys(itemCount)
               .map(key => itemCount[key])
               .join(' + ');
