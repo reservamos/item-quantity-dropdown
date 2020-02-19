@@ -85,6 +85,17 @@ $(document).ready(() => {
 
 ### Config options
 
+#### Dropdown options using data attributes
+
+```html
+<div class="iqdropdown">
+  <p class="iqdropdown-selection" data-seletion-text="item" data-text-plural="items"></p>
+  <div class="iqdropdown-menu">
+    ...
+  </div>
+</div>
+```
+
 #### Item specific using data attributes
 
 ```html
@@ -101,10 +112,12 @@ $(document).ready(() => {
   maxItems: Infinity,
   // min total items
   minItems: 0,
-  // text to show on the dropdown
+  // text to show on the dropdown override data-selection-text attribute
   selectionText: 'item',
   // text to show for multiple items
   textPlural: 'items',
+  // optionally can use setSelectionText function to override selectionText
+  setSelectionText: (itemCount, totalItems) => { /* return string */ },
   // buttons to increment/decrement
   controls: {
     position: 'right',
@@ -120,6 +133,41 @@ $(document).ready(() => {
   beforeIncrement: (id, itemCount) => {}
 }
 ```
+
+#### Selection text
+
+Default value.
+
+```javascript
+`${totalItems} item` // if total items is 1
+`${totalItems} items` // if total items is not 1
+```
+
+Data attribute `data-selection-text` override default value.
+
+```html
+<p class="iqdropdown-selection" data-seletion-text="item" data-text-plural="items">
+```
+
+Property `selectionText` override data attribute
+
+```javascript
+options.selectionText = 'item';
+options.textPlural = 'items';
+```
+
+Function `setSelectionText` override `selectionText` property.
+
+```javascript
+options.setSelectionText = function setSelectionText(itemCount, totalItems)
+```
+
+Arguments:
+
+- *itemCount* <object> - keys - items data-id; values - items count
+- *totalCount* <number> - total items count
+
+Return selection text <string>.
 
 ### Demo
 

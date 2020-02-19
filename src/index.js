@@ -20,6 +20,11 @@ import 'styles/main.scss';
     onChange: () => {},
     beforeDecrement: () => true,
     beforeIncrement: () => true,
+    setSelectionText (itemCount, totalItems) {
+      const usePlural = totalItems !== 1 && this.textPlural.length > 0;
+      const text = usePlural ? this.textPlural : this.selectionText;
+      return `${totalItems} ${text}`;
+    },
   };
 
   $.fn.iqDropdown = function (options) {
@@ -28,14 +33,16 @@ import 'styles/main.scss';
       const $selection = $this.find('p.iqdropdown-selection').last();
       const $menu = $this.find('div.iqdropdown-menu');
       const $items = $menu.find('div.iqdropdown-menu-option');
-      const settings = $.extend(true, {}, defaults, options);
+      const dataAttrOptions = {
+        selectionText: $selection.data('selection-text'),
+        textPlural: $selection.data('text-plural'),
+      };
+      const settings = $.extend(true, {}, defaults, dataAttrOptions, options);
       const itemCount = {};
       let totalItems = 0;
 
       function updateDisplay () {
-        const usePlural = totalItems !== 1 && settings.textPlural.length > 0;
-        const text = usePlural ? settings.textPlural : settings.selectionText;
-        $selection.html(`${totalItems} ${text}`);
+        $selection.html(settings.setSelectionText(itemCount, totalItems));
       }
 
       function setItemSettings (id, $item) {

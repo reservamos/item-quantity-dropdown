@@ -61,6 +61,41 @@
         </div>
       </div>
 
+      <h3>No config options with custom selection message</h3>
+      <div class="no-config iqdropdown">
+        <p class="iqdropdown-selection" data-selection-text="passenger" data-text-plural="passengers"></p>
+        <div class="iqdropdown-menu">
+          <div
+            class="iqdropdown-menu-option"
+            data-id="adult"
+            data-defaultcount="1"
+            data-mincount="1"
+          >
+            <div>
+              <p class="iqdropdown-item">Adults</p>
+              <p class="iqdropdown-description">12+ years</p>
+            </div>
+          </div>
+          <div
+            class="iqdropdown-menu-option"
+            data-id="minor"
+            data-defaultcount="0"
+            data-mincount="0"
+          >
+            <div>
+              <p class="iqdropdown-item">Children</p>
+              <p class="iqdropdown-description">2 - 11 years</p>
+            </div>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="infant">
+            <div>
+              <p class="iqdropdown-item">Infants</p>
+              <p class="iqdropdown-description">2 years</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h3>Custom config</h3>
 
       <div class="custom iqdropdown">
@@ -138,7 +173,42 @@
           </button>
         </div>
       </div>
-    </div>
+
+      <h3>Custom message</h3>
+
+      <div class="custom-message iqdropdown">
+        <p class="iqdropdown-selection"></p>
+        <div class="iqdropdown-menu">
+          <div
+            class="iqdropdown-menu-option"
+            data-id="item-a"
+            data-defaultcount="0"
+            data-mincount="0"
+            data-maxcount="5"
+          >
+            <div>
+              <p class="iqdropdown-item">Item A</p>
+            </div>
+          </div>
+          <div
+            class="iqdropdown-menu-option"
+            data-id="item-b"
+            data-defaultcount="0"
+            data-mincount="0"
+            data-maxcount="5"
+          >
+            <div>
+              <p class="iqdropdown-item">Item B</p>
+            </div>
+          </div>
+
+          <button class="iqdropdown-menu-close">
+            Cerrar
+          </button>
+        </div>
+      </div>
+
+    </div> <!-- Container -->
 
     <script
       src="https://code.jquery.com/jquery-3.0.0.min.js"
@@ -169,6 +239,19 @@
               return itemCount.adult > itemCount.infant;
             }
             return true;
+          }
+        });
+
+        $(".custom-message").iqDropdown({
+          minItems: 0,
+          onChange: function(id, count, totalItems) {
+            console.log(id, count, totalItems);
+          },
+          setSelectionText: function (itemCount, totalItems) {
+            const items = Object.keys(itemCount)
+              .map(key => itemCount[key])
+              .join(' + ');
+            return items + ' = ' + totalItems;
           }
         });
       });
