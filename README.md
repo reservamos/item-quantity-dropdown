@@ -116,6 +116,8 @@ $(document).ready(() => {
   selectionText: 'item',
   // text to show for multiple items
   textPlural: 'items',
+  // text to show placeholder
+  placeHolderText: 'Custom Placeholder',
   // optionally can use setSelectionText function to override selectionText
   setSelectionText: (itemCount, totalItems) => { /* return string */ },
   // buttons to increment/decrement
