@@ -10,7 +10,7 @@ import 'styles/main.scss';
     minItems: 0,
     selectionText: 'item',
     textPlural: 'items',
-    placeHolderText: 'Custom Placeholder',
+    placeHolderText: '',
     controls: {
       position: 'right',
       displayCls: 'iqdropdown-content',
