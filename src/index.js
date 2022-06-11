@@ -22,7 +22,7 @@ import 'styles/main.scss';
     beforeDecrement: () => true,
     beforeIncrement: () => true,
     setSelectionText (itemCount, totalItems) {
-      if (totalItems == 0) {
+      if (totalItems == 0 && this.placeHolderText != '') {
         return this.placeHolderText;
       }
       const usePlural = totalItems !== 1 && this.textPlural.length > 0;
