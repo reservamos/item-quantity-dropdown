@@ -40,6 +40,7 @@ import 'styles/main.scss';
       const dataAttrOptions = {
         selectionText: $selection.data('selection-text'),
         textPlural: $selection.data('text-plural'),
+        placeHolderText: $this.data("placeholder"),
       };
       const settings = $.extend(true, {}, defaults, dataAttrOptions, options);
       const itemCount = {};
