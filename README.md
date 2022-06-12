@@ -88,7 +88,7 @@ $(document).ready(() => {
 #### Dropdown options using data attributes
 
 ```html
-<div class="iqdropdown">
+<div class="iqdropdown" data-placeholder="Custom Placeholder">
   <p class="iqdropdown-selection" data-seletion-text="item" data-text-plural="items"></p>
   <div class="iqdropdown-menu">
     ...
