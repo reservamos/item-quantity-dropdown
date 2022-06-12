@@ -10,6 +10,7 @@ import 'styles/main.scss';
     minItems: 0,
     selectionText: 'item',
     textPlural: 'items',
+    placeHolderText: '',
     controls: {
       position: 'right',
       displayCls: 'iqdropdown-content',
@@ -21,6 +22,9 @@ import 'styles/main.scss';
     beforeDecrement: () => true,
     beforeIncrement: () => true,
     setSelectionText (itemCount, totalItems) {
+      if (totalItems == 0 && this.placeHolderText != '') {
+        return this.placeHolderText;
+      }
       const usePlural = totalItems !== 1 && this.textPlural.length > 0;
       const text = usePlural ? this.textPlural : this.selectionText;
       return `${totalItems} ${text}`;
@@ -36,6 +40,7 @@ import 'styles/main.scss';
       const dataAttrOptions = {
         selectionText: $selection.data('selection-text'),
         textPlural: $selection.data('text-plural'),
+        placeHolderText: $this.data("placeholder"),
       };
       const settings = $.extend(true, {}, defaults, dataAttrOptions, options);
       const itemCount = {};

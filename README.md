@@ -88,7 +88,7 @@ $(document).ready(() => {
 #### Dropdown options using data attributes
 
 ```html
-<div class="iqdropdown">
+<div class="iqdropdown" data-placeholder="Custom Placeholder">
   <p class="iqdropdown-selection" data-seletion-text="item" data-text-plural="items"></p>
   <div class="iqdropdown-menu">
     ...
@@ -116,6 +116,8 @@ $(document).ready(() => {
   selectionText: 'item',
   // text to show for multiple items
   textPlural: 'items',
+  // text to show placeholder
+  placeHolderText: 'Custom Placeholder',
   // optionally can use setSelectionText function to override selectionText
   setSelectionText: (itemCount, totalItems) => { /* return string */ },
   // buttons to increment/decrement
